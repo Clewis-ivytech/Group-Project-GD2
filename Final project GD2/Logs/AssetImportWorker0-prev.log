@@ -1,7 +1,7 @@
 Using pre-set license
 
  COMMAND LINE ARGUMENTS:
-/Users/maclabguest/Desktop/Game Design/Unity/2020.3.7f1/Unity.app/Contents/MacOS/Unity
+/Users/maclabguest/Desktop/Homework/2020.3.7f1/Unity.app/Contents/MacOS/Unity
 -adb2
 -batchMode
 -noUpm
@@ -12,72 +12,80 @@ AssetImportWorker0
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-55742
+57568
 Successfully changed project path to: /Users/maclabguest/Documents/GitHub/Group-Project-GD2/Final project GD2
 /Users/maclabguest/Documents/GitHub/Group-Project-GD2/Final project GD2
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 30.30 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 31.09 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.7f1 (dd97f2c94397)
-[Subsystems] Discovering subsystems at path /Users/maclabguest/Desktop/Game Design/Unity/2020.3.7f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/maclabguest/Desktop/Homework/2020.3.7f1/Unity.app/Contents/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path /Users/maclabguest/Documents/GitHub/Group-Project-GD2/Final project GD2/Assets
 GfxDevice: creating device client; threaded=0
-2022-02-23 14:39:02.781 Unity[30021:4202460] Color LCD preferred device: Intel(R) Iris(TM) Graphics 6100 (low power)
-2022-02-23 14:39:02.781 Unity[30021:4202460] Metal devices available: 1
-2022-02-23 14:39:02.781 Unity[30021:4202460] 0: Intel(R) Iris(TM) Graphics 6100 (low power)
-2022-02-23 14:39:02.782 Unity[30021:4202460] Using device Intel(R) Iris(TM) Graphics 6100 (low power)
+2022-02-24 13:59:56.977 Unity[50248:15762991] Color LCD preferred device: Intel(R) Iris(TM) Graphics 6100 (low power)
+2022-02-24 13:59:56.977 Unity[50248:15762991] Metal devices available: 1
+2022-02-24 13:59:56.977 Unity[50248:15762991] 0: Intel(R) Iris(TM) Graphics 6100 (low power)
+2022-02-24 13:59:56.978 Unity[50248:15762991] Using device Intel(R) Iris(TM) Graphics 6100 (low power)
 Initializing Metal device caps: Intel(R) Iris(TM) Graphics 6100
 Initialize mono
-Mono path[0] = '/Users/maclabguest/Desktop/Game Design/Unity/2020.3.7f1/Unity.app/Contents/Managed'
-Mono path[1] = '/Users/maclabguest/Desktop/Game Design/Unity/2020.3.7f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = '/Users/maclabguest/Desktop/Game Design/Unity/2020.3.7f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56021
+Mono path[0] = '/Users/maclabguest/Desktop/Homework/2020.3.7f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Users/maclabguest/Desktop/Homework/2020.3.7f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Users/maclabguest/Desktop/Homework/2020.3.7f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56248
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: /Users/maclabguest/Desktop/Game Design/Unity/2020.3.7f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
-Registered in 0.002340 seconds.
+Register platform support module: /Users/maclabguest/Desktop/Homework/2020.3.7f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Registered in 0.000576 seconds.
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 27.68 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 29.69 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.057 seconds
+- Completed reload, in  1.804 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.000893 seconds.
+Registered in 0.000484 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.22 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.21 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.307 seconds
+- Completed reload, in  1.329 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launching external process: /Users/maclabguest/Desktop/Game Design/Unity/2020.3.7f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launching external process: /Users/maclabguest/Desktop/Homework/2020.3.7f1/Unity.app/Contents/Tools/UnityShaderCompiler
 Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
-Refreshing native plugins compatible for Editor in 0.27 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.23 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1115 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 109.8 MB.
-System memory in use after: 109.9 MB.
+System memory in use before: 107.4 MB.
+System memory in use after: 107.5 MB.
 
 Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1558.
-Total: 3.442284 ms (FindLiveObjects: 0.379006 ms CreateObjectMapping: 0.106562 ms MarkObjects: 2.834867 ms  DeleteObjects: 0.119061 ms)
+Total: 2.686913 ms (FindLiveObjects: 0.301922 ms CreateObjectMapping: 0.076648 ms MarkObjects: 2.201253 ms  DeleteObjects: 0.105603 ms)
 
 ========================================================================
 Received Import Request.
   path: Assets/Menu.unity
   artifactKey: Guid(7b5d34cec011c473c9ec10ed48a56ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Menu.unity using Guid(7b5d34cec011c473c9ec10ed48a56ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d2b1f5a58a1b2ef4d17f880a81b39fa') in 0.013397 seconds
-  Import took 0.016054 seconds .
+Start importing Assets/Menu.unity using Guid(7b5d34cec011c473c9ec10ed48a56ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d2b1f5a58a1b2ef4d17f880a81b39fa') in 0.028077 seconds
+  Import took 0.032740 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.392149 seconds.
+  Time since last request: 0.000389 seconds.
   path: Assets/Main.unity
   artifactKey: Guid(e4ef5172e14e949ee869aeb89c7ae353) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Main.unity using Guid(e4ef5172e14e949ee869aeb89c7ae353) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3ebd7e7aa16768a9cf983b099dbde28') in 0.003093 seconds
-  Import took 0.012162 seconds .
+Start importing Assets/Main.unity using Guid(e4ef5172e14e949ee869aeb89c7ae353) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '295debda895f3437623e1f723c9d6693') in 0.002529 seconds
+  Import took 0.005386 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.885858 seconds.
+  path: Assets/Scenes
+  artifactKey: Guid(0010e7b68cf544481a93a4596340e14f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes using Guid(0010e7b68cf544481a93a4596340e14f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24bfcc851b34f11f310069bfe48b43b3') in 0.001808 seconds
+  Import took 0.005296 seconds .
 
 ========================================================================
 Received Import Request.
