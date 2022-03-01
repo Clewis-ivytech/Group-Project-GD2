@@ -12,78 +12,86 @@ AssetImportWorker0
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-57568
+55991
 Successfully changed project path to: /Users/maclabguest/Documents/GitHub/Group-Project-GD2/Final project GD2
 /Users/maclabguest/Documents/GitHub/Group-Project-GD2/Final project GD2
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 31.09 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 38.84 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.7f1 (dd97f2c94397)
 [Subsystems] Discovering subsystems at path /Users/maclabguest/Desktop/Homework/2020.3.7f1/Unity.app/Contents/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path /Users/maclabguest/Documents/GitHub/Group-Project-GD2/Final project GD2/Assets
 GfxDevice: creating device client; threaded=0
-2022-02-24 13:59:56.977 Unity[50248:15762991] Color LCD preferred device: Intel(R) Iris(TM) Graphics 6100 (low power)
-2022-02-24 13:59:56.977 Unity[50248:15762991] Metal devices available: 1
-2022-02-24 13:59:56.977 Unity[50248:15762991] 0: Intel(R) Iris(TM) Graphics 6100 (low power)
-2022-02-24 13:59:56.978 Unity[50248:15762991] Using device Intel(R) Iris(TM) Graphics 6100 (low power)
+2022-03-01 14:04:11.070 Unity[64193:16599748] Color LCD preferred device: Intel(R) Iris(TM) Graphics 6100 (low power)
+2022-03-01 14:04:11.070 Unity[64193:16599748] Metal devices available: 1
+2022-03-01 14:04:11.070 Unity[64193:16599748] 0: Intel(R) Iris(TM) Graphics 6100 (low power)
+2022-03-01 14:04:11.071 Unity[64193:16599748] Using device Intel(R) Iris(TM) Graphics 6100 (low power)
 Initializing Metal device caps: Intel(R) Iris(TM) Graphics 6100
 Initialize mono
 Mono path[0] = '/Users/maclabguest/Desktop/Homework/2020.3.7f1/Unity.app/Contents/Managed'
 Mono path[1] = '/Users/maclabguest/Desktop/Homework/2020.3.7f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = '/Users/maclabguest/Desktop/Homework/2020.3.7f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56248
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56193
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: /Users/maclabguest/Desktop/Homework/2020.3.7f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
-Registered in 0.000576 seconds.
+Registered in 0.000689 seconds.
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 29.69 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 45.72 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.804 seconds
+- Completed reload, in  2.020 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.000484 seconds.
+Registered in 0.000590 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.21 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.23 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.329 seconds
+- Completed reload, in  1.472 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launching external process: /Users/maclabguest/Desktop/Homework/2020.3.7f1/Unity.app/Contents/Tools/UnityShaderCompiler
 Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
-Refreshing native plugins compatible for Editor in 0.23 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.22 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1115 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 107.4 MB.
-System memory in use after: 107.5 MB.
+Unloading 1129 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 110.1 MB.
+System memory in use after: 110.2 MB.
 
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1558.
-Total: 2.686913 ms (FindLiveObjects: 0.301922 ms CreateObjectMapping: 0.076648 ms MarkObjects: 2.201253 ms  DeleteObjects: 0.105603 ms)
-
-========================================================================
-Received Import Request.
-  path: Assets/Menu.unity
-  artifactKey: Guid(7b5d34cec011c473c9ec10ed48a56ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Menu.unity using Guid(7b5d34cec011c473c9ec10ed48a56ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d2b1f5a58a1b2ef4d17f880a81b39fa') in 0.028077 seconds
-  Import took 0.032740 seconds .
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1573.
+Total: 3.233289 ms (FindLiveObjects: 0.438702 ms CreateObjectMapping: 0.124130 ms MarkObjects: 2.570190 ms  DeleteObjects: 0.097908 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000389 seconds.
-  path: Assets/Main.unity
-  artifactKey: Guid(e4ef5172e14e949ee869aeb89c7ae353) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Main.unity using Guid(e4ef5172e14e949ee869aeb89c7ae353) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '295debda895f3437623e1f723c9d6693') in 0.002529 seconds
-  Import took 0.005386 seconds .
+  path: Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset
+  artifactKey: Guid(f952c082cb03451daed3ee968ac6c63e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset using Guid(f952c082cb03451daed3ee968ac6c63e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c530c6e6f8e8b31e3a90b9a2bb11a4b2') in 0.242536 seconds
+  Import took 0.245796 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 3.885858 seconds.
-  path: Assets/Scenes
-  artifactKey: Guid(0010e7b68cf544481a93a4596340e14f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes using Guid(0010e7b68cf544481a93a4596340e14f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24bfcc851b34f11f310069bfe48b43b3') in 0.001808 seconds
-  Import took 0.005296 seconds .
+  Time since last request: 0.000312 seconds.
+  path: Assets/TextMesh Pro/Sprites/EmojiOne.png
+  artifactKey: Guid(dffef66376be4fa480fb02b19edbe903) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Sprites/EmojiOne.png using Guid(dffef66376be4fa480fb02b19edbe903) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afeb1b28908fce42afdf73a1a3a7e33d') in 0.399188 seconds
+  Import took 0.401793 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000295 seconds.
+  path: Assets/TextMesh Pro/Fonts/LiberationSans.ttf
+  artifactKey: Guid(e3265ab4bf004d28a9537516768c1c75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Fonts/LiberationSans.ttf using Guid(e3265ab4bf004d28a9537516768c1c75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ddf4e562c2bb16eda40825a0890526b6') in 0.332170 seconds
+  Import took 0.335391 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000256 seconds.
+  path: Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset
+  artifactKey: Guid(c41005c129ba4d66911b75229fd70b45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset using Guid(c41005c129ba4d66911b75229fd70b45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2147ebf232180f0f0c6ba2526f00e1ac') in 0.013701 seconds
+  Import took 0.016496 seconds .
 
