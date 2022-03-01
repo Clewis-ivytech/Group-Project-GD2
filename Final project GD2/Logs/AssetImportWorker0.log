@@ -95,3 +95,51 @@ Received Import Request.
 Start importing Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset using Guid(c41005c129ba4d66911b75229fd70b45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2147ebf232180f0f0c6ba2526f00e1ac') in 0.013701 seconds
   Import took 0.016496 seconds .
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000986 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.23 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.258 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.23 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1110 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 125.6 MB.
+System memory in use after: 125.7 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1622.
+Total: 1.844308 ms (FindLiveObjects: 0.174495 ms CreateObjectMapping: 0.039332 ms MarkObjects: 1.610272 ms  DeleteObjects: 0.018999 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 487.700050 seconds.
+  path: Assets/Scripts/ScenePermenence.cs
+  artifactKey: Guid(eaf34162ad1b7466293f9945940e7ec7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/ScenePermenence.cs using Guid(eaf34162ad1b7466293f9945940e7ec7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c253ed2e642e7feaec0c486a6868d2b4') in 0.350599 seconds
+  Import took 0.354761 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000812 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.23 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.217 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.25 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1111 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 130.1 MB.
+System memory in use after: 130.2 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1626.
+Total: 1.945990 ms (FindLiveObjects: 0.196754 ms CreateObjectMapping: 0.040782 ms MarkObjects: 1.687341 ms  DeleteObjects: 0.019124 ms)
+
