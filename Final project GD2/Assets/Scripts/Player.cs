@@ -22,19 +22,19 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            playerBody.AddForce(Vector3.forward * Force);     
+            playerBody.AddForce(Vector3.back * Force);     
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            playerBody.AddForce(Vector3.forward * -Force);
+            playerBody.AddForce(Vector3.forward * backwardsForce);
         }
          else if (Input.GetKeyDown(KeyCode.A))
         {
-            playerBody.AddForce(Vector3.left * Force);
+            playerBody.AddForce(Vector3.right * Force);
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
-            playerBody.AddForce(Vector3.right * Force);
+            playerBody.AddForce(Vector3.left * Force);
         }
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
