@@ -9,7 +9,7 @@ public class BouncePad : MonoBehaviour
 
      private void OnCollisionEnter(Collision collision)
     {
-       if (collision.gameObject.CompareTag("Bouncy"))
+       if (collision.gameObject.CompareTag("Character"))
         {
 
             Debug.Log("Player collided with bouncepad");
