@@ -15,8 +15,8 @@ public class Shootydrawbridge : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        yRotation += Time.deltaTime * speed;
+       // yRotation += Time.deltaTime * speed;
 
-        this.transform
+        //this.transform
     }
 }
