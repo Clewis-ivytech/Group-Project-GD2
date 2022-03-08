@@ -3127,6 +3127,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5325607714297485325, guid: a137dc8ecc8f846e58a03f7d1dbfc795, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.77
+      objectReference: {fileID: 0}
+    - target: {fileID: -5325607714297485325, guid: a137dc8ecc8f846e58a03f7d1dbfc795, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.12
+      objectReference: {fileID: 0}
     - target: {fileID: -4812087940819023593, guid: a137dc8ecc8f846e58a03f7d1dbfc795, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.073
@@ -3193,7 +3201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBody: {fileID: 2128472479}
   player: {fileID: 2128472477}
-  Force: 400
+  Force: 6
   cameraStand: {fileID: 2098891090}
   backwardsForce: 200
   upwardsForce: 450
