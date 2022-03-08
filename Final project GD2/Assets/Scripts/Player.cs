@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            playerBody.AddForce(Vector3.forward * -Force);
+            playerBody.AddForce(Vector3.back * backwardsForce);
         }
          else if (Input.GetKeyDown(KeyCode.A))
         {
