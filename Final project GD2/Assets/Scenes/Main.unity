@@ -3201,7 +3201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBody: {fileID: 2128472479}
   player: {fileID: 2128472477}
-  Force: 6
+  Force: 7
   cameraStand: {fileID: 2098891090}
   backwardsForce: 200
   upwardsForce: 450
