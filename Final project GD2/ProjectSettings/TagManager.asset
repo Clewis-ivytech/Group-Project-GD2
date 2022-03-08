@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Floor
+  - Bouncy
+  - Character
+  - Die
   layers:
   - Default
   - TransparentFX
