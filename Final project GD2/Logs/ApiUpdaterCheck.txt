@@ -1,0 +1,10 @@
+[api-updater (non-obsolete-error-filter)] 3/1/2022 2:13:35 PM : Starting /Users/maclabguest/Desktop/Game Design/Unity/2020.3.7f1/Unity.app/Contents/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 116.929ms
+moved types parse time: 250ms
+candidates parse time : 13ms
+C# parse time         : 654ms
+candidates check time : 55ms
+console write time    : 2ms
+
