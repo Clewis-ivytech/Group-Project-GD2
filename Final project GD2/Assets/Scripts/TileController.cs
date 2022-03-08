@@ -16,10 +16,11 @@ public class TileController : MonoBehaviour
     public float ScaleX;
     public float ScaleY;
     public float ScaleZ;
+    private bool Loop;
 
-    void Update()
+    void Awake()
     {
-        transform.Translate(Vector3.right * Time.deltaTime * MoveX);
+        MoveOnX();
         transform.Translate(Vector3.up * Time.deltaTime * MoveY);
         transform.Translate(Vector3.forward * Time.deltaTime * MoveZ);
         transform.Rotate(Vector3.right * Time.deltaTime * RotateX);
@@ -28,5 +29,12 @@ public class TileController : MonoBehaviour
         transform.Rotate(Vector3.forward * Time.deltaTime * ScaleX);
         transform.Rotate(Vector3.forward * Time.deltaTime * ScaleY);
         transform.Rotate(Vector3.forward * Time.deltaTime * ScaleZ);
+    }
+    private void MoveOnX()
+    {
+        while (Loop == true)
+        {
+            transform.Translate(Vector3.right * Time.deltaTime * MoveX);
+        }
     }
 }
