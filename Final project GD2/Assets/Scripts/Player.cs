@@ -51,6 +51,12 @@ public class Player : MonoBehaviour
         {
             isOnGround = true;
         }
+        if (collision.gameObject.CompareTag("Die"))
+        {
+            gameObject.transform.position = new Vector3(-6, 22, 36);
+            playerBody.velocity = Vector3.zero;
+            playerBody.angularVelocity = Vector3.zero;
+        }
     }
 
 }
