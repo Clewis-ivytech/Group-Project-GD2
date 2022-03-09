@@ -22,19 +22,19 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            playerBody.AddForce(Vector3.forward * Force, ForceMode.Impulse);     
+            playerBody.AddForce(Vector3.forward * Force);     
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            playerBody.AddForce(Vector3.back * -Force, ForceMode.Impulse);
+            playerBody.AddForce(Vector3.back * backwardsForce);
         }
          else if (Input.GetKeyDown(KeyCode.A))
         {
-            playerBody.AddForce(Vector3.left * Force, ForceMode.Impulse);
+            playerBody.AddForce(Vector3.left * Force);
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
-            playerBody.AddForce(Vector3.right * Force, ForceMode.Impulse);
+            playerBody.AddForce(Vector3.right * Force);
         }
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
@@ -51,9 +51,9 @@ public class Player : MonoBehaviour
         {
             isOnGround = true;
         }
-        if (collision.gameObject.CompareTag("Die")) 
+        if (collision.gameObject.CompareTag("Die"))
         {
-            player.transform.position = new Vector3(-15, 9, -19);
+            gameObject.transform.position = new Vector3(-6, 22, 36);
             playerBody.velocity = Vector3.zero;
             playerBody.angularVelocity = Vector3.zero;
         }
