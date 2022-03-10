@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     public Rigidbody playerBody;
     public GameObject player;
-    public float Force = 20;
+    public float Force;
     public GameObject cameraStand;
     public float backwardsForce = 220;
     public float upwardsForce;
@@ -24,33 +24,90 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W) && speed <= 35  )
+        // Go Forward
+        if (Input.GetKey(KeyCode.W) && speed < 50)
         {
             playerBody.AddForce(Vector3.forward * Force, ForceMode.Impulse);
             speed = speed + 1;
         }
-        else if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.W) == false && speed > 0)
+        {
+            speed = speed - 1;
+        }
+        if ( speed == 50)
+        {
+            playerBody.velocity = playerBody.velocity / 2;
+            playerBody.angularVelocity = playerBody.angularVelocity / 2;
+            speed = 0;
+        }
+        // Go Backwards
+        else if (Input.GetKey(KeyCode.S) && backSpeed < 50)
         {
             playerBody.AddForce(Vector3.back * Force, ForceMode.Impulse);
+            backSpeed = backSpeed + 1;
         }
-         else if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.S) == false && backSpeed > 0)
+        {
+            backSpeed = backSpeed - 1;
+        }
+        if (backSpeed == 50)
+        {
+            playerBody.velocity = playerBody.velocity / 2;
+            playerBody.angularVelocity = playerBody.angularVelocity / 2 ;
+            backSpeed = 0;
+        }
+        // Go Left
+        else if (Input.GetKey(KeyCode.A) && leftSpeed < 50)
         {
             playerBody.AddForce(Vector3.left * Force, ForceMode.Impulse);
+            leftSpeed = leftSpeed + 1;
         }
-        else if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.A) == false && leftSpeed > 0)
+        {
+            leftSpeed = leftSpeed - 1;
+        }
+        if (leftSpeed == 50)
+        {
+            playerBody.velocity = playerBody.velocity / 2;
+            playerBody.angularVelocity = playerBody.angularVelocity / 2;
+            leftSpeed = 0;
+        }
+
+        //Go Right
+        else if (Input.GetKey(KeyCode.D) && rightSpeed < 50)
         {
             playerBody.AddForce(Vector3.right * Force, ForceMode.Impulse);
+            rightSpeed = rightSpeed + 1;
         }
+        if (Input.GetKey(KeyCode.D) == false && rightSpeed > 0)
+        {
+            rightSpeed = rightSpeed - 1;
+        }
+        if (rightSpeed == 50)
+        {
+            playerBody.velocity = playerBody.velocity / 2;
+            playerBody.angularVelocity = playerBody.angularVelocity / 2;
+            rightSpeed = 0;
+        }
+        // Jump
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
             playerBody.AddForce(Vector3.up * upwardsForce);
             isOnGround = false;
         }
-        if (Input.GetKey(KeyCode.W) == false && speed > 0)
+        // Reset on purpose
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            speed = speed - 1;
-            
+            player.transform.position = new Vector3(-15, 10, -19);
+            playerBody.velocity = Vector3.zero;
+            playerBody.angularVelocity = Vector3.zero;
+            speed = 0;
+            backSpeed = 0;
+            leftSpeed = 0;
+            rightSpeed = 0;
         }
+
+        
         
 
         cameraStand.transform.position = player.transform.position;
@@ -66,6 +123,10 @@ public class Player : MonoBehaviour
             player.transform.position = new Vector3(-15, 10, -19);
             playerBody.velocity = Vector3.zero;
             playerBody.angularVelocity = Vector3.zero;
+            speed = 0;
+            backSpeed = 0;
+            leftSpeed = 0;
+            rightSpeed = 0;
         }
     }
 

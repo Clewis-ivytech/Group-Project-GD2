@@ -6706,15 +6706,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a137dc8ecc8f846e58a03f7d1dbfc795, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.66
+      value: -12.39
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a137dc8ecc8f846e58a03f7d1dbfc795, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.61
+      value: 9.9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a137dc8ecc8f846e58a03f7d1dbfc795, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.88
+      value: -18.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a137dc8ecc8f846e58a03f7d1dbfc795, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6905,10 +6905,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBody: {fileID: 2128472479}
   player: {fileID: 2128472477}
-  Force: 400
+  Force: 0.4
   cameraStand: {fileID: 2098891090}
   backwardsForce: 200
   upwardsForce: 450
+  speed: 0
+  leftSpeed: 0
+  rightSpeed: 0
+  backSpeed: 0
 --- !u!114 &2128472482
 MonoBehaviour:
   m_ObjectHideFlags: 0
