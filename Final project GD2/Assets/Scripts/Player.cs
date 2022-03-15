@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -15,15 +16,21 @@ public class Player : MonoBehaviour
     public float leftSpeed;
     public float rightSpeed;
     public float backSpeed;
+    public float CoinsCollected = 0;
+    public TextMeshProUGUI EndText;
     // Start is called before the first frame update
     void Start()
     {
-        
+        CoinsCollected = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (CoinsCollected == 5)
+        {
+            TriggerEnd();
+        }
         // Go Forward
         if (Input.GetKey(KeyCode.W) && speed < 50)
         {
@@ -128,6 +135,11 @@ public class Player : MonoBehaviour
             leftSpeed = 0;
             rightSpeed = 0;
         }
+    }
+
+    void TriggerEnd()
+    {
+        EndText.gameObject.SetActive(true);
     }
 
 }
