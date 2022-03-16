@@ -5,10 +5,9 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class LevelUIManager : MonoBehaviour
 {
-    //
     public int RemmyCoinCollected;
     public TextMeshProUGUI RemmyCount;
-    //
+    public Player PlayerScript;
 
     public void LoadMenu()
     {
@@ -17,6 +16,11 @@ public class LevelUIManager : MonoBehaviour
 
     private void Update()
     {
-        RemmyCount.text = "Remmy Coins: " + RemmyCoinCollected + "/5";
+        RemmyCount.text = "Coins: " + RemmyCoinCollected + "/5";
+
+        if (RemmyCoinCollected == 5)
+        {
+            PlayerScript.CoinsCollected = 5;
+        }
     }
 }
