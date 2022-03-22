@@ -9,6 +9,7 @@ public class SpinningPlatform : MonoBehaviour
     public GameObject Platform;
 
     public bool activated = false;
+
 // Start is called before the first frame update
 void Start()
     {
@@ -27,7 +28,7 @@ void Start()
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("HOW DARE YOU ACTIVATE ME GOD.");
+        //Debug.Log("HOW DARE YOU ACTIVATE ME GOD.");
 
         
         /*{
