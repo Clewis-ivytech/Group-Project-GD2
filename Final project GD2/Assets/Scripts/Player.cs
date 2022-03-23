@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         CoinsCollected = 0;
+        EndText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
