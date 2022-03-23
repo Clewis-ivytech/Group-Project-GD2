@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     public float backSpeed;
     public float CoinsCollected = 0;
     public TextMeshProUGUI EndText;
+    public int currentScene = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -112,6 +114,8 @@ public class Player : MonoBehaviour
             backSpeed = 0;
             leftSpeed = 0;
             rightSpeed = 0;
+            SceneManager.LoadScene(currentScene);
+            
         }
 
         
@@ -134,6 +138,8 @@ public class Player : MonoBehaviour
             backSpeed = 0;
             leftSpeed = 0;
             rightSpeed = 0;
+
+            SceneManager.LoadScene(currentScene);
         }
     }
 
