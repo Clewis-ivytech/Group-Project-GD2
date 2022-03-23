@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    //
     public GameObject MainMenuPanal;
     public GameObject LevelPanal;
-    //
+    public GameObject SettingsPanal;
+    public GameObject CharacterPanal;
 
     public void LoadLevelOne()
     {
@@ -48,6 +48,28 @@ public class MenuManager : MonoBehaviour
         LevelPanal.SetActive(false);
     }
 
+    public void SettingsPanelOn()
+    {
+        SettingsPanal.SetActive(true);
+        MainMenuPanal.SetActive(false);
+    }
 
+    public void SettingsPanelOff()
+    {
+        MainMenuPanal.SetActive(true);
+        SettingsPanal.SetActive(false);
+    }
+
+    public void CharacterPanelOn()
+    {
+        CharacterPanal.SetActive(true);
+        MainMenuPanal.SetActive(false);
+    }
+
+    public void CharacterPanelOff()
+    {
+        CharacterPanal.SetActive(true);
+        SettingsPanal.SetActive(false);
+    }
 
 }
