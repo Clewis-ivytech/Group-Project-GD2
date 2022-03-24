@@ -20,10 +20,10 @@ void Start()
     void Update()
     {
 
-        if (activated)
-        {
+        //if (activated)
+        //{
             Platform.transform.Rotate(rotation * Time.deltaTime);
-        }
+        //}
     }
 
     private void OnCollisionEnter(Collision collision)
