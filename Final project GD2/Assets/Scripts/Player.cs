@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -18,12 +19,13 @@ public class Player : MonoBehaviour
     public float backSpeed;
     public float CoinsCollected = 0;
     public TextMeshProUGUI EndText;
+    public int sceneNumber = 1;
     // Start is called before the first frame update
     void Start()
     {
         CoinsCollected = 0;
-        EndText.gameObject.SetActive(false);
-    }
+        
+    }   
 
     // Update is called once per frame
     void Update()
@@ -31,7 +33,10 @@ public class Player : MonoBehaviour
         if (CoinsCollected == 5)
         {
             TriggerEnd();
+            sceneNumber = sceneNumber + 1;
+            
         }
+        
         // Go Forward
         if (Input.GetKey(KeyCode.W) && speed < 50)
         {
@@ -113,6 +118,9 @@ public class Player : MonoBehaviour
             backSpeed = 0;
             leftSpeed = 0;
             rightSpeed = 0;
+            SceneManager.LoadScene(sceneNumber);
+            Debug.Log(sceneNumber);
+
         }
 
         
@@ -128,19 +136,24 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Die")) 
         {
-            player.transform.position = new Vector3(-15, 10, -19);
+            
             playerBody.velocity = Vector3.zero;
             playerBody.angularVelocity = Vector3.zero;
             speed = 0;
             backSpeed = 0;
             leftSpeed = 0;
             rightSpeed = 0;
+            Debug.Log(sceneNumber);
+            SceneManager.LoadScene(sceneNumber);
         }
     }
 
     void TriggerEnd()
     {
-        EndText.gameObject.SetActive(true);
+       
+        sceneNumber = sceneNumber + 1;
+        SceneManager.LoadScene(sceneNumber);
+        Debug.Log(sceneNumber);
     }
 
 }

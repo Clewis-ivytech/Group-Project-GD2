@@ -310,7 +310,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &449547253
 GameObject:
@@ -565,7 +565,7 @@ Transform:
   - {fileID: 1161222276}
   - {fileID: 663543925}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &749141177
 GameObject:
@@ -1046,6 +1046,9 @@ MonoBehaviour:
   leftSpeed: 0
   rightSpeed: 0
   backSpeed: 0
+  CoinsCollected: 0
+  EndText: {fileID: 0}
+  sceneNumber: 3
 --- !u!135 &1149202296
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1525,7 +1528,7 @@ Transform:
   - {fileID: 749141181}
   - {fileID: 912807529}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1702688911
 GameObject:
@@ -1620,7 +1623,7 @@ Transform:
   m_LocalScale: {x: 5000, y: 10, z: 5000}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1797759530
 GameObject:
@@ -1651,5 +1654,5 @@ Transform:
   m_Children:
   - {fileID: 795894381}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 3.676, y: -8.5, z: 1.999}
