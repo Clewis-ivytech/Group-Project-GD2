@@ -8,3 +8,23 @@ C# parse time         : 654ms
 candidates check time : 55ms
 console write time    : 2ms
 
+[api-updater (non-obsolete-error-filter)] 3/23/2022 2:08:38 PM : Starting /Users/maclabguest/Desktop/Create with code/2020.3.7f1/Unity.app/Contents/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 185.43ms
+moved types parse time: 89ms
+candidates parse time : 2ms
+C# parse time         : 426ms
+candidates check time : 50ms
+console write time    : 0ms
+
+[api-updater (non-obsolete-error-filter)] 3/23/2022 2:10:53 PM : Starting /Users/maclabguest/Desktop/Create with code/2020.3.7f1/Unity.app/Contents/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 91.48ms
+moved types parse time: 55ms
+candidates parse time : 1ms
+C# parse time         : 301ms
+candidates check time : 41ms
+console write time    : 0ms
+

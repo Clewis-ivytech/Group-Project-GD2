@@ -15,15 +15,30 @@ public class Player : MonoBehaviour
     public float leftSpeed;
     public float rightSpeed;
     public float backSpeed;
+<<<<<<< Updated upstream
     // Start is called before the first frame update
     void Start()
     {
         
+=======
+    public float CoinsCollected = 0;
+    // Start is called before the first frame update
+    void Start()
+    {
+        CoinsCollected = 0;
+>>>>>>> Stashed changes
     }
 
     // Update is called once per frame
     void Update()
     {
+<<<<<<< Updated upstream
+=======
+        if (CoinsCollected == 5)
+        {
+            Debug.Log("End");
+        }
+>>>>>>> Stashed changes
         // Go Forward
         if (Input.GetKey(KeyCode.W) && speed < 50)
         {
