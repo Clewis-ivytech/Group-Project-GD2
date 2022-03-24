@@ -5322,6 +5322,7 @@ MonoBehaviour:
   backSpeed: 0
   CoinsCollected: 0
   EndText: {fileID: 541204268}
+  currentScene: 1
 --- !u!1 &2132263525
 GameObject:
   m_ObjectHideFlags: 0
