@@ -3504,7 +3504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: deb69a0bed0ce4f67b986a64225b0aeb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.266361
+      value: 11.27
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: deb69a0bed0ce4f67b986a64225b0aeb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5129,7 +5129,6 @@ MonoBehaviour:
   rightSpeed: 0
   backSpeed: 0
   CoinsCollected: 0
-  EndText: {fileID: 541204268}
   sceneNumber: 1
 --- !u!1 &2132263525
 GameObject:
