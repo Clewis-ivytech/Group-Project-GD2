@@ -23,7 +23,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         CoinsCollected = 0;
-        
     }   
 
     // Update is called once per frame

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6632651196512681183}
   - component: {fileID: 6632651196512681179}
   m_Layer: 0
-  m_Name: Capsule (11)
+  m_Name: Falling Spike
   m_TagString: Die
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

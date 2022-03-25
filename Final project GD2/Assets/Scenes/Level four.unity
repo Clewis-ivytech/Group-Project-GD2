@@ -534,8 +534,7 @@ MonoBehaviour:
   rightSpeed: 0
   backSpeed: 0
   CoinsCollected: 0
-  EndText: {fileID: 0}
-  sceneNumber: 1
+  sceneNumber: 4
 --- !u!135 &2042367771
 SphereCollider:
   m_ObjectHideFlags: 0
