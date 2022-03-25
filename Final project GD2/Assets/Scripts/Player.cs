@@ -18,7 +18,6 @@ public class Player : MonoBehaviour
     public float rightSpeed;
     public float backSpeed;
     public float CoinsCollected = 0;
-    public TextMeshProUGUI EndText;
     public int sceneNumber = 1;
     // Start is called before the first frame update
     void Start()
@@ -111,7 +110,7 @@ public class Player : MonoBehaviour
         // Reset on purpose
         if (Input.GetKeyDown(KeyCode.R))
         {
-            player.transform.position = new Vector3(-15, 10, -19);
+            //player.transform.position = new Vector3(-15, 10, -19);
             playerBody.velocity = Vector3.zero;
             playerBody.angularVelocity = Vector3.zero;
             speed = 0;
