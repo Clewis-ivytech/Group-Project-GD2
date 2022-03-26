@@ -150,8 +150,20 @@ public class Player : MonoBehaviour
     {
        
         sceneNumber = sceneNumber + 1;
-        SceneManager.LoadScene(sceneNumber);
         Debug.Log(sceneNumber);
+        if (sceneNumber == 6)
+        {
+            Victory();
+        }
+        else
+        {
+            SceneManager.LoadScene(sceneNumber);
+        }
+    }
+
+    void Victory()
+    {
+        SceneManager.LoadScene(0);
     }
 
 }
