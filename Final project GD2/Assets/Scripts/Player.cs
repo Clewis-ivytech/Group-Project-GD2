@@ -6,27 +6,28 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public Rigidbody playerBody;
-    public GameObject player;
-    public float Force;
-    public GameObject cameraStand;
-    public float backwardsForce = 220;
-    public float upwardsForce;
+    [SerializeField] Rigidbody playerBody;
+    [SerializeField] GameObject player;
+    private float Force = 0.4f;
+    [SerializeField] GameObject cameraStand;
+    // private float backwardsForce = 200;
+    private float upwardsForce = 450;
     bool isOnGround = true;
-    public float speed;
-    public float leftSpeed;
-    public float rightSpeed;
-    public float backSpeed;
-    public float CoinsCollected = 0;
+    private float speed;
+    private float leftSpeed;
+    private float rightSpeed;
+    private float backSpeed;
+    [HideInInspector] public float CoinsCollected = 0;
     public int sceneNumber = 1;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         CoinsCollected = 0;
     }   
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (CoinsCollected == 5)
         {
@@ -107,23 +108,23 @@ public class Player : MonoBehaviour
             isOnGround = false;
         }
         // Reset on purpose
-        if (Input.GetKeyDown(KeyCode.R))
+        if (sceneNumber > 0)
         {
-            //player.transform.position = new Vector3(-15, 10, -19);
-            playerBody.velocity = Vector3.zero;
-            playerBody.angularVelocity = Vector3.zero;
-            speed = 0;
-            backSpeed = 0;
-            leftSpeed = 0;
-            rightSpeed = 0;
-            SceneManager.LoadScene(sceneNumber);
-            Debug.Log(sceneNumber);
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                //player.transform.position = new Vector3(-15, 10, -19);
+                playerBody.velocity = Vector3.zero;
+                playerBody.angularVelocity = Vector3.zero;
+                speed = 0;
+                backSpeed = 0;
+                leftSpeed = 0;
+                rightSpeed = 0;
+                SceneManager.LoadScene(sceneNumber);
+                Debug.Log(sceneNumber);
 
+            }
         }
-
         
-        
-
         cameraStand.transform.position = player.transform.position;
     }
     private void OnCollisionEnter(Collision collision)
@@ -146,24 +147,19 @@ public class Player : MonoBehaviour
         }
     }
 
-    void TriggerEnd()
+    private void TriggerEnd()
     {
        
         sceneNumber = sceneNumber + 1;
         Debug.Log(sceneNumber);
         if (sceneNumber == 6)
         {
-            Victory();
+            SceneManager.LoadScene(0);
         }
         else
         {
             SceneManager.LoadScene(sceneNumber);
         }
-    }
-
-    void Victory()
-    {
-        SceneManager.LoadScene(0);
     }
 
 }

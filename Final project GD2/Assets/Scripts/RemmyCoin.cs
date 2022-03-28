@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class RemmyCoin : MonoBehaviour
 {
-    //
-    public int ID;
-    public int LevelID;
-    public bool Collected = false;
-    public RemmyCoin Instance;
-    public GameObject remmyCoin;
-    public Rigidbody remmyCoinRB;
-    public LevelUIManager LevelUIManager;
-    //
+    // public int ID;
+    // public int LevelID;
+    private bool Collected = false;
+    [SerializeField] RemmyCoin Instance;
+    [SerializeField] GameObject remmyCoin;
+    [SerializeField] Rigidbody remmyCoinRB;
+    [SerializeField] LevelUIManager LevelUIManager;
+
     private void Awake()
     {
         Collected = false;

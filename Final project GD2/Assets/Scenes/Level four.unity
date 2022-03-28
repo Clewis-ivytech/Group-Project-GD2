@@ -693,7 +693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a137dc8ecc8f846e58a03f7d1dbfc795, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a137dc8ecc8f846e58a03f7d1dbfc795, type: 3}
       propertyPath: m_TagString
@@ -741,16 +741,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBody: {fileID: 671432282}
   player: {fileID: 671432279}
-  Force: 0.4
   cameraStand: {fileID: 482628796}
-  backwardsForce: 200
-  upwardsForce: 450
-  speed: 0
-  leftSpeed: 0
-  rightSpeed: 0
-  backSpeed: 0
   CoinsCollected: 0
-  sceneNumber: 1
+  sceneNumber: 4
 --- !u!135 &671432281
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -886,7 +879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: e6ab94ea3d7bfb840aa41680fa79570e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: e6ab94ea3d7bfb840aa41680fa79570e, type: 3}
       propertyPath: m_TagString
@@ -978,16 +971,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBody: {fileID: 1103353519}
   player: {fileID: 1103353516}
-  Force: 0.4
   cameraStand: {fileID: 482628796}
-  backwardsForce: 200
-  upwardsForce: 450
-  speed: 0
-  leftSpeed: 0
-  rightSpeed: 0
-  backSpeed: 0
   CoinsCollected: 0
-  sceneNumber: 1
+  sceneNumber: 4
 --- !u!135 &1103353518
 SphereCollider:
   m_ObjectHideFlags: 0
