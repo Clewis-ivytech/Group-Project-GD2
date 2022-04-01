@@ -24,7 +24,6 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject PlayerObject1;
     [SerializeField] GameObject PlayerObject2;
     [SerializeField] GameObject PlayerObject3;
-    private float CurrentCharacter;
     [SerializeField] bool Char2Lock;
     [SerializeField] bool Char3Lock;
     [SerializeField] TMP_Text Char2Txt;
@@ -33,14 +32,100 @@ public class MenuManager : MonoBehaviour
     [SerializeField] TMP_Text Lvl3Txt;
     [SerializeField] TMP_Text Lvl4Txt;
     [SerializeField] TMP_Text Lvl5Txt;
-    private bool Lvl2Lock;
-    private bool Lvl3Lock;
-    private bool Lvl4Lock;
-    private bool Lvl5Lock;
+    [HideInInspector] public bool Lvl2Lock;
+    [HideInInspector] public bool Lvl3Lock;
+    [HideInInspector] public bool Lvl4Lock;
+    [HideInInspector] public bool Lvl5Lock;
+    private int index;
+    [SerializeField] bool Dev;
+    [SerializeField] GameObject DevObj;
+    [HideInInspector] public bool DevMode;
+    [SerializeField] TMP_Text DevTxt;
+    private int boolean;
 
-    private void Start()
+    private void Awake()
     {
-        CurrentCharacter = 1;
+        boolean = PlayerPrefs.GetInt("Lvl2Lock");
+        if (boolean == 1)
+        {
+            Lvl2Lock = true;
+        }
+        else
+        {
+            Lvl2Lock = false;
+        }
+
+        boolean = PlayerPrefs.GetInt("Lvl3Lock");
+        if (boolean == 1)
+        {
+            Lvl3Lock = true;
+        }
+        else
+        {
+            Lvl3Lock = false;
+        }
+
+        boolean = PlayerPrefs.GetInt("Lvl4Lock");
+        if (boolean == 1)
+        {
+            Lvl4Lock = true;
+        }
+        else
+        {
+            Lvl4Lock = false;
+        }
+
+        boolean = PlayerPrefs.GetInt("Lvl5Lock");
+        if (boolean == 1)
+        {
+            Lvl5Lock = true;
+        }
+        else
+        {
+            Lvl5Lock = false;
+        }
+
+        boolean = PlayerPrefs.GetInt("Character2Lock");
+        if (boolean == 1)
+        {
+            Char2Lock = true;
+        }
+        else
+        {
+            Char2Lock = false;
+        }
+
+        boolean = PlayerPrefs.GetInt("Character3Lock");
+        if (boolean == 1)
+        {
+            Char3Lock = true;
+        }
+        else
+        {
+            Char3Lock = false;
+        }
+        
+        if (Dev)
+        {
+            DevObj.SetActive(true);
+        }
+
+        index = PlayerPrefs.GetInt("CharacterSelected");
+
+        if (index == 1)
+        {
+            CharacterOne();
+        }
+
+        if (index == 2)
+        {
+            CharacterTwo();
+        }
+
+        if (index == 3)
+        {
+            CharacterThree();
+        }
     }
 
     public void LoadLevelOne()
@@ -50,22 +135,34 @@ public class MenuManager : MonoBehaviour
 
     public void LoadLevelTwo()
     {
-        SceneManager.LoadScene(2);
+        if (Lvl2Lock || DevMode)
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 
     public void LoadLevelThree()
     {
-        SceneManager.LoadScene(3);
+        if (Lvl3Lock || DevMode)
+        {
+            SceneManager.LoadScene(3);
+        }
     }
 
     public void LoadLevelFour()
     {
-        SceneManager.LoadScene(4);
+        if (Lvl4Lock || DevMode)
+        {
+            SceneManager.LoadScene(4);
+        }
     }
 
     public void LoadLevelFive()
     {
-        SceneManager.LoadScene(5);
+        if (Lvl5Lock || DevMode)
+        {
+            SceneManager.LoadScene(5);
+        }
     }
 
     public void LevelPanalOn()
@@ -73,6 +170,42 @@ public class MenuManager : MonoBehaviour
         LevelPanal.SetActive(true);
         MainMenuPanal.SetActive(false);
         CharacterDiaplay.SetActive(false);
+
+        if (Lvl2Lock || DevMode)
+        {
+            Lvl2Txt.SetText("Level 2");
+        }
+        else
+        {
+            Lvl2Txt.SetText("(Locked)");
+        }
+
+        if (Lvl3Lock || DevMode)
+        {
+            Lvl3Txt.SetText("Level 3");
+        }
+        else
+        {
+            Lvl3Txt.SetText("(Locked)");
+        }
+
+        if (Lvl4Lock || DevMode)
+        {
+            Lvl4Txt.SetText("Level 4");
+        }
+        else
+        {
+            Lvl4Txt.SetText("(Locked)");
+        }
+
+        if (Lvl5Lock || DevMode)
+        {
+            Lvl5Txt.SetText("Level 5");
+        }
+        else
+        {
+            Lvl5Txt.SetText("(Locked)");
+        }
     }
 
     public void LevelPanalOff()
@@ -114,7 +247,7 @@ public class MenuManager : MonoBehaviour
         MainMenuPanal.SetActive(false);
         Spotlight.SetActive(true);
 
-        if (Char2Lock)
+        if (Char2Lock || DevMode)
         {
             Char2Txt.SetText("PlaceHolder");
         }
@@ -123,49 +256,13 @@ public class MenuManager : MonoBehaviour
             Char2Txt.SetText("(Locked)");
         }
 
-        if (Char3Lock)
+        if (Char3Lock || DevMode)
         {
             Char3Txt.SetText("Colin Christ");
         }
         else
         {
             Char3Txt.SetText("(Locked)");
-        }
-
-        if (Lvl2Lock)
-        {
-            Lvl2Txt.SetText("Level 2");
-        }
-        else
-        {
-            Lvl2Txt.SetText("(Locked)");
-        }
-
-        if (Lvl3Lock)
-        {
-            Lvl3Txt.SetText("Level 3");
-        }
-        else
-        {
-            Lvl3Txt.SetText("(Locked)");
-        }
-
-        if (Lvl4Lock)
-        {
-            Lvl4Txt.SetText("Level 4");
-        }
-        else
-        {
-            Lvl4Txt.SetText("(Locked)");
-        }
-
-        if (Lvl5Lock)
-        {
-            Lvl5Txt.SetText("Level 5");
-        }
-        else
-        {
-            Lvl5Txt.SetText("(Locked)");
         }
     }
 
@@ -184,7 +281,7 @@ public class MenuManager : MonoBehaviour
         Character1Txt.SetActive(true);
         Character2Txt.SetActive(false);
         Character3Txt.SetActive(false);
-        CurrentCharacter = 1;
+        PlayerPrefs.SetInt("CharacterSelected", 1);
 
         if (Menu)
         {
@@ -196,7 +293,7 @@ public class MenuManager : MonoBehaviour
 
     public void CharacterTwo()
     {
-        if (Char2Lock)
+        if (Char2Lock || DevMode)
         {
             Character1.SetActive(false);
             Character2.SetActive(true);
@@ -204,7 +301,7 @@ public class MenuManager : MonoBehaviour
             Character1Txt.SetActive(false);
             Character2Txt.SetActive(true);
             Character3Txt.SetActive(false);
-            CurrentCharacter = 2;
+            PlayerPrefs.SetInt("CharacterSelected", 2);
 
             if (Menu)
             {
@@ -221,7 +318,7 @@ public class MenuManager : MonoBehaviour
 
     public void CharacterThree()
     {
-        if (Char3Lock)
+        if (Char3Lock || DevMode)
         {
             Character1.SetActive(false);
             Character2.SetActive(false);
@@ -229,7 +326,7 @@ public class MenuManager : MonoBehaviour
             Character1Txt.SetActive(false);
             Character2Txt.SetActive(false);
             Character3Txt.SetActive(true);
-            CurrentCharacter = 3;
+            PlayerPrefs.SetInt("CharacterSelected", 3);
 
             if (Menu)
             {
@@ -242,5 +339,39 @@ public class MenuManager : MonoBehaviour
         {
             Char3Txt.SetText("(Locked)");
         }
+    }
+
+    public void DevButton()
+    {
+        if (DevMode)
+        {
+            DevMode = false;
+            DevTxt.SetText("Dev Mode");
+        }
+        else
+        {
+            DevMode = true;
+            DevTxt.SetText("Dev Mode*");
+        }
+    }
+
+    public void ResetProgress()
+    {
+        CharacterOne();
+        if (DevMode)
+        {
+            DevMode = false;
+            DevTxt.SetText("Dev Mode");
+        }
+
+        PlayerPrefs.SetInt("CharacterSelected", 1);
+        PlayerPrefs.SetInt("Lvl2Lock", 0);
+        PlayerPrefs.SetInt("Lvl3Lock", 0);
+        PlayerPrefs.SetInt("Lvl4Lock", 0);
+        PlayerPrefs.SetInt("Lvl5Lock", 0);
+        PlayerPrefs.SetInt("Character2Lock", 0);
+        PlayerPrefs.SetInt("Character3Lock", 0);
+
+        Awake();
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class LevelUIManager : MonoBehaviour
 {
-    [HideInInspector] public int RemmyCoinCollected;
+    /*[HideInInspector]*/ public int RemmyCoinCollected;
     [SerializeField] TextMeshProUGUI RemmyCount;
     [SerializeField] Player PlayerScript;
 

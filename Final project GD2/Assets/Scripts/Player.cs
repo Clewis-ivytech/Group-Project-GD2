@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     private float backSpeed;
     [HideInInspector] public float CoinsCollected = 0;
     public int sceneNumber = 1;
+    //private bool Active = true;
 
     // Start is called before the first frame update
     private void Start()
@@ -29,13 +30,16 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (CoinsCollected == 5)
+        //while (Active)
         {
-            TriggerEnd();
-            sceneNumber = sceneNumber + 1;
-            
+            if (CoinsCollected == 5)
+            {
+                //Active = false;
+                TriggerEnd();
+                sceneNumber = sceneNumber + 1;
+
+            }
         }
-        
         // Go Forward
         if (Input.GetKey(KeyCode.W) && speed < 50)
         {
@@ -149,7 +153,47 @@ public class Player : MonoBehaviour
 
     private void TriggerEnd()
     {
-       
+        if (sceneNumber == 1)
+        {
+            PlayerPrefs.SetInt("Lvl2Lock", 1);
+            sceneNumber = sceneNumber + 1;
+            print("Level 2 loaded/unlocked");
+            SceneManager.LoadScene(sceneNumber);
+        }
+
+        if (sceneNumber == 2)
+        {
+            //PlayerPrefs.SetInt("Character2Lock", 1);
+            PlayerPrefs.SetInt("Lvl3Lock", 1);
+            sceneNumber = sceneNumber + 1;
+            print("Level 3 loaded/unlocked");
+            SceneManager.LoadScene(sceneNumber);
+        }
+
+        if (sceneNumber == 3)
+        {
+            PlayerPrefs.SetInt("Lvl4Lock", 1);
+            sceneNumber = sceneNumber + 1;
+            print("Level 4 loaded/unlocked");
+            SceneManager.LoadScene(sceneNumber);
+        }
+
+        if (sceneNumber == 4)
+        {
+            PlayerPrefs.SetInt("Lvl5Lock", 1);
+            sceneNumber = sceneNumber + 1;
+            print("Level 5 loaded/unlocked");
+            SceneManager.LoadScene(sceneNumber);
+        }
+
+        if (sceneNumber == 5)
+        {
+            PlayerPrefs.SetInt("Character3Lock", 1);
+            print("Level 5 completed");
+            SceneManager.LoadScene(0);
+        }
+
+        /*
         sceneNumber = sceneNumber + 1;
         Debug.Log(sceneNumber);
         if (sceneNumber == 6)
@@ -160,6 +204,7 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene(sceneNumber);
         }
+        */
     }
 
 }
