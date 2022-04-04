@@ -19,27 +19,48 @@ public class Player : MonoBehaviour
     private float backSpeed;
     [HideInInspector] public float CoinsCollected = 0;
     public int sceneNumber = 1;
-    //private bool Active = true;
+    private bool Active;
+    private int Lock3;
+
+    private int NewLvl2;
+    private int NewLvl3;
+    private int NewLvl4;
+    private int NewLvl5;
 
     // Start is called before the first frame update
     private void Start()
     {
         CoinsCollected = 0;
-    }   
+    }
 
     // Update is called once per frame
     private void Update()
     {
-        //while (Active)
+        if (CoinsCollected == 5)
         {
-            if (CoinsCollected == 5)
-            {
-                //Active = false;
-                TriggerEnd();
-                sceneNumber = sceneNumber + 1;
 
+            if (sceneNumber == 1)
+            {
+                FinishOne();
+            }
+            if (sceneNumber == 2)
+            {
+                FinishTwo();
+            }
+            if (sceneNumber == 3)
+            {
+                FinishThree();
+            }
+            if (sceneNumber == 4)
+            {
+                FinishFour();
+            }
+            if (sceneNumber == 5)
+            {
+                FinishFive();
             }
         }
+
         // Go Forward
         if (Input.GetKey(KeyCode.W) && speed < 50)
         {
@@ -50,7 +71,7 @@ public class Player : MonoBehaviour
         {
             speed = speed - 1;
         }
-        if ( speed == 50)
+        if (speed == 50)
         {
             playerBody.velocity = playerBody.velocity / 2;
             playerBody.angularVelocity = playerBody.angularVelocity / 2;
@@ -69,7 +90,7 @@ public class Player : MonoBehaviour
         if (backSpeed == 50)
         {
             playerBody.velocity = playerBody.velocity / 2;
-            playerBody.angularVelocity = playerBody.angularVelocity / 2 ;
+            playerBody.angularVelocity = playerBody.angularVelocity / 2;
             backSpeed = 0;
         }
         // Go Left
@@ -128,18 +149,19 @@ public class Player : MonoBehaviour
 
             }
         }
-        
+
         cameraStand.transform.position = player.transform.position;
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Floor"))
         {
             isOnGround = true;
         }
-        if (collision.gameObject.CompareTag("Die")) 
+        if (collision.gameObject.CompareTag("Die"))
         {
-            
+
             playerBody.velocity = Vector3.zero;
             playerBody.angularVelocity = Vector3.zero;
             speed = 0;
@@ -151,60 +173,84 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void TriggerEnd()
+    void FinishOne()
     {
-        if (sceneNumber == 1)
+        CoinsCollected = 0;
+        PlayerPrefs.SetInt("Lvl2Lock", 1);
+        NewLvl2 = PlayerPrefs.GetInt("NewLvl2");
+        if (NewLvl2 == 0)
         {
-            PlayerPrefs.SetInt("Lvl2Lock", 1);
-            sceneNumber = sceneNumber + 1;
-            print("Level 2 loaded/unlocked");
-            SceneManager.LoadScene(sceneNumber);
+            PlayerPrefs.SetInt("NewLvl2", 1);
         }
-
-        if (sceneNumber == 2)
+        print("Level 2 loaded/unlocked");
+        SceneManager.LoadScene(2);
+    }
+    
+    void FinishTwo()
+    {
+        PlayerPrefs.SetInt("Character2Lock", 1);
+        PlayerPrefs.SetInt("NewChar2", 1); //char 2 unlocks
+        CoinsCollected = 0;
+        PlayerPrefs.SetInt("Lvl3Lock", 1);
+        NewLvl3 = PlayerPrefs.GetInt("NewLvl3");
+        if (NewLvl3 == 0)
         {
-            //PlayerPrefs.SetInt("Character2Lock", 1);
-            PlayerPrefs.SetInt("Lvl3Lock", 1);
-            sceneNumber = sceneNumber + 1;
-            print("Level 3 loaded/unlocked");
-            SceneManager.LoadScene(sceneNumber);
+            PlayerPrefs.SetInt("NewLvl3", 1);
         }
-
-        if (sceneNumber == 3)
+        print("Level 3 loaded/unlocked");
+        SceneManager.LoadScene(3);
+    }
+    
+    void FinishThree()
+    {
+        CoinsCollected = 0;
+        PlayerPrefs.SetInt("Lvl4Lock", 1);
+        NewLvl4 = PlayerPrefs.GetInt("NewLvl4");
+        if (NewLvl4 == 0)
         {
-            PlayerPrefs.SetInt("Lvl4Lock", 1);
-            sceneNumber = sceneNumber + 1;
-            print("Level 4 loaded/unlocked");
-            SceneManager.LoadScene(sceneNumber);
+            PlayerPrefs.SetInt("NewLvl4", 1);
         }
-
-        if (sceneNumber == 4)
+        print("Level 4 loaded/unlocked");
+        SceneManager.LoadScene(4);
+    }
+    
+    void FinishFour()
+    {
+        CoinsCollected = 0;
+        PlayerPrefs.SetInt("Lvl5Lock", 1);
+        NewLvl5 = PlayerPrefs.GetInt("NewLvl5");
+        if (NewLvl5 == 0)
         {
-            PlayerPrefs.SetInt("Lvl5Lock", 1);
-            sceneNumber = sceneNumber + 1;
-            print("Level 5 loaded/unlocked");
-            SceneManager.LoadScene(sceneNumber);
+            PlayerPrefs.SetInt("NewLvl5", 1);
         }
-
-        if (sceneNumber == 5)
+        print("Level 5 loaded/unlocked");
+        SceneManager.LoadScene(5);
+    }
+    
+    void FinishFive()
+    {
+        CoinsCollected = 0;
+        PlayerPrefs.SetInt("Character3Lock", 1);
+        print("Level 5 completed");
+        SceneManager.LoadScene(0);
+        Lock3 = PlayerPrefs.GetInt("3LockMessage");
+        if (Lock3 == 0)
         {
-            PlayerPrefs.SetInt("Character3Lock", 1);
-            print("Level 5 completed");
-            SceneManager.LoadScene(0);
+            PlayerPrefs.SetInt("3LockMessage", 1);
         }
-
-        /*
-        sceneNumber = sceneNumber + 1;
-        Debug.Log(sceneNumber);
-        if (sceneNumber == 6)
-        {
-            SceneManager.LoadScene(0);
-        }
-        else
-        {
-            SceneManager.LoadScene(sceneNumber);
-        }
-        */
+        PlayerPrefs.SetInt("NewChar3", 1); //char 3 unlocks
     }
 
+    /*
+    sceneNumber = sceneNumber + 1;
+    Debug.Log(sceneNumber);
+    if (sceneNumber == 6)
+    {
+        SceneManager.LoadScene(0);
+    }
+    else
+    {
+        SceneManager.LoadScene(sceneNumber);
+    }
+    */
 }

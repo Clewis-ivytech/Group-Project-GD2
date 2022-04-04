@@ -8,6 +8,25 @@ public class LevelUIManager : MonoBehaviour
     /*[HideInInspector]*/ public int RemmyCoinCollected;
     [SerializeField] TextMeshProUGUI RemmyCount;
     [SerializeField] Player PlayerScript;
+    [SerializeField] GameObject UnlockTxt;
+    private float timeToAppear = 4f;
+    private float timeWhenDisappear;
+    private int Lock2;
+
+    private void Start()
+    {
+        Lock2 = PlayerPrefs.GetInt("2LockMessage");
+        if (UnlockTxt == null)
+        {
+            return;
+        }
+        else if (Lock2 == 0)
+        {
+            PlayerPrefs.SetInt("2LockMessage", 1);
+            UnlockTxt.SetActive(true);
+            timeWhenDisappear = Time.time + timeToAppear;
+        }
+    }
 
     public void LoadMenu()
     {
@@ -21,6 +40,15 @@ public class LevelUIManager : MonoBehaviour
         if (RemmyCoinCollected == 5)
         {
             PlayerScript.CoinsCollected = 5;
+        }
+
+        if (UnlockTxt == null)
+        {
+            return;
+        }
+        else if(UnlockTxt.activeSelf == true && (Time.time >= timeWhenDisappear))
+        {
+            UnlockTxt.SetActive(false);
         }
     }
 }

@@ -42,6 +42,12 @@ public class MenuManager : MonoBehaviour
     [HideInInspector] public bool DevMode;
     [SerializeField] TMP_Text DevTxt;
     private int boolean;
+    [SerializeField] GameObject QuitConfirm;
+    [SerializeField] GameObject ResetConfirm;
+    [SerializeField] GameObject UnlockTxt;
+    private float timeToAppear = 4f;
+    private float timeWhenDisappear;
+    private int Lock3;
 
     private void Awake()
     {
@@ -125,6 +131,22 @@ public class MenuManager : MonoBehaviour
         if (index == 3)
         {
             CharacterThree();
+        }
+
+        Lock3 = PlayerPrefs.GetInt("3LockMessage");
+        if (Lock3 == 1)
+        {
+            PlayerPrefs.SetInt("3LockMessage", 2);
+            UnlockTxt.SetActive(true);
+            timeWhenDisappear = Time.time + timeToAppear;
+        }
+    }
+
+    private void Update()
+    {
+        if (UnlockTxt.activeSelf == true && (Time.time >= timeWhenDisappear))
+        {
+            UnlockTxt.SetActive(false);
         }
     }
 
@@ -355,8 +377,42 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public void OpenQuitConfirm()
+    {
+        QuitConfirm.SetActive(true);
+    }
+
+    public void CloseQuitConfirm()
+    {
+        QuitConfirm.SetActive(false);
+    }
+
+    public void QuitGame()
+    {
+#if UNITY_EDITOR
+        QuitConfirm.SetActive(false);
+        UnityEditor.EditorApplication.isPlaying = false;
+        Debug.Log("Game is exiting");
+#else
+      QuitConfirm.SetActive(false);
+      Application.Quit();
+      Debug.Log("Game is exiting");
+#endif
+    }
+
+    public void OpenResetConfirm()
+    {
+        ResetConfirm.SetActive(true);
+    }
+
+    public void CloseResetConfirm()
+    {
+        ResetConfirm.SetActive(false);
+    }
+
     public void ResetProgress()
     {
+        ResetConfirm.SetActive(false);
         CharacterOne();
         if (DevMode)
         {
@@ -371,6 +427,14 @@ public class MenuManager : MonoBehaviour
         PlayerPrefs.SetInt("Lvl5Lock", 0);
         PlayerPrefs.SetInt("Character2Lock", 0);
         PlayerPrefs.SetInt("Character3Lock", 0);
+        PlayerPrefs.SetInt("2LockMessage", 0);
+        PlayerPrefs.SetInt("3LockMessage", 0);
+        PlayerPrefs.SetInt("NewLvl2", 0);
+        PlayerPrefs.SetInt("NewLvl3", 0);
+        PlayerPrefs.SetInt("NewLvl4", 0);
+        PlayerPrefs.SetInt("NewLvl5", 0);
+        PlayerPrefs.SetInt("NewChar2", 0);
+        PlayerPrefs.SetInt("NewChar3", 0);
 
         Awake();
     }

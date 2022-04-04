@@ -1080,7 +1080,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBody: {fileID: 364997373}
   player: {fileID: 364997371}
-  cameraStand: {fileID: 0}
+  cameraStand: {fileID: 777943111}
   CoinsCollected: 0
   sceneNumber: 5
 --- !u!54 &364997373
@@ -1757,6 +1757,7 @@ MonoBehaviour:
   RemmyCoinCollected: 0
   RemmyCount: {fileID: 1292825891}
   PlayerScript: {fileID: 364997372}
+  UnlockTxt: {fileID: 0}
 --- !u!114 &541013436
 MonoBehaviour:
   m_ObjectHideFlags: 0
