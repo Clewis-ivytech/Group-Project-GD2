@@ -2532,7 +2532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75590f16a060f45c39bedd2ed2b4cf23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1300
+  speed: 500
   Player: {fileID: 1390194752}
   Boost: 0
 --- !u!54 &717045249
@@ -3728,7 +3728,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1130903457}
   m_LocalRotation: {x: -0.40821788, y: 0.23456968, z: -0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 63.95, y: -9.85, z: 971.67}
+  m_LocalPosition: {x: 63.9, y: -9.8, z: 971.7}
   m_LocalScale: {x: 8.277973, y: 0.43357265, z: 8.224167}
   m_Children: []
   m_Father: {fileID: 685049262}
@@ -3746,7 +3746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75590f16a060f45c39bedd2ed2b4cf23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1300
+  speed: 500
   Player: {fileID: 1390194752}
   Boost: 0
 --- !u!54 &1130903460
@@ -3940,7 +3940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75590f16a060f45c39bedd2ed2b4cf23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1300
+  speed: 500
   Player: {fileID: 1390194752}
   Boost: 0
 --- !u!54 &1132958897
@@ -4068,7 +4068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75590f16a060f45c39bedd2ed2b4cf23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1300
+  speed: 1050
   Player: {fileID: 1390194752}
   Boost: 0
 --- !u!54 &1161222278
@@ -6119,7 +6119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75590f16a060f45c39bedd2ed2b4cf23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1300
+  speed: 500
   Player: {fileID: 1390194752}
   Boost: 0
 --- !u!54 &2001540163
