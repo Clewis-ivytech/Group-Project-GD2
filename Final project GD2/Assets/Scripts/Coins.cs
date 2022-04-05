@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Coins : MonoBehaviour
 {
-    public GameObject coin;
-    public Rigidbody coinBody;
-    public int speed;
+    [SerializeField] GameObject coin;
+    [SerializeField] Rigidbody coinBody;
+    private int speed = 25;
     // Start is called before the first frame update
     void Start()
     {
-        
+        coinBody.AddRelativeTorque(Vector3.up * Random.Range(1, 10));
     }
 
     // Update is called once per frame
