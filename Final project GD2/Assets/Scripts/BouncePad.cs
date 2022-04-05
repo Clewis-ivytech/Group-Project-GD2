@@ -4,14 +4,27 @@ using UnityEngine;
 
 public class BouncePad : MonoBehaviour
 {
-    public int speed;
-    public GameObject Player;
+    [SerializeField] int speed;
+    [SerializeField] GameObject Player;
+    [SerializeField] bool Boost;
 
-     private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-       if (collision.gameObject.CompareTag("Character"))
+        if (Boost)
         {
-            Player.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * speed);
+            if (collision.gameObject.CompareTag("Character"))
+            {
+                Player.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * speed / 10);
+                Player.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * speed);
+            }
+        }
+
+        else
+        {
+            if (collision.gameObject.CompareTag("Character"))
+            {
+                Player.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * speed);
+            }
         }
     }
 }
