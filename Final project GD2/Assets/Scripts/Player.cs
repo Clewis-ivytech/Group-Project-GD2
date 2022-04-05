@@ -27,6 +27,11 @@ public class Player : MonoBehaviour
     private int NewLvl4;
     private int NewLvl5;
 
+    private int TotalDeaths;
+    private int TotalJumps;
+    private int TotalResets;
+
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -131,12 +136,22 @@ public class Player : MonoBehaviour
         {
             playerBody.AddForce(Vector3.up * upwardsForce);
             isOnGround = false;
+
+            // jumping
+            TotalJumps = PlayerPrefs.GetInt("TotalJumps");
+            PlayerPrefs.SetInt("TotalJumps", TotalJumps + 1);
+
         }
         // Reset on purpose
         if (sceneNumber > 0)
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
+                //when resetting
+                TotalResets = PlayerPrefs.GetInt("TotalResets");
+                PlayerPrefs.SetInt("TotalResetss", TotalResets + 1);
+
+
                 //player.transform.position = new Vector3(-15, 10, -19);
                 playerBody.velocity = Vector3.zero;
                 playerBody.angularVelocity = Vector3.zero;
@@ -161,6 +176,9 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Die"))
         {
+            //when dying
+            TotalDeaths = PlayerPrefs.GetInt("TotalDeaths");
+            PlayerPrefs.SetInt("TotalDeaths", TotalDeaths + 1);
 
             playerBody.velocity = Vector3.zero;
             playerBody.angularVelocity = Vector3.zero;

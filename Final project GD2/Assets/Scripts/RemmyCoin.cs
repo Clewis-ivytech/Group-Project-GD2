@@ -11,6 +11,7 @@ public class RemmyCoin : MonoBehaviour
     [SerializeField] GameObject remmyCoin;
     [SerializeField] Rigidbody remmyCoinRB;
     [SerializeField] LevelUIManager LevelUIManager;
+    private int TotalCoins;
 
     private void Awake()
     {
@@ -31,6 +32,11 @@ public class RemmyCoin : MonoBehaviour
         {
             LevelUIManager.RemmyCoinCollected = LevelUIManager.RemmyCoinCollected + 1;
             Collected = true;
+
+            //when getting a coin
+            TotalCoins = PlayerPrefs.GetInt("TotalCoins");
+            PlayerPrefs.SetInt("TotalCoins", TotalCoins + 1);
+
         }
     }
 

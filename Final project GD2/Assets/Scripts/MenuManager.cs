@@ -48,6 +48,15 @@ public class MenuManager : MonoBehaviour
     private float timeToAppear = 4f;
     private float timeWhenDisappear;
     private int Lock3;
+    [SerializeField] GameObject StatsScreen;
+    [SerializeField] TMP_Text CoinsTxt;
+    [SerializeField] TMP_Text DeathsTxt;
+    [SerializeField] TMP_Text JumpsTxt;
+    [SerializeField] TMP_Text ResetsTxt;
+    private int TotalCoins;
+    private int TotalDeaths;
+    private int TotalJumps;
+    private int TotalResets;
 
     private void Awake()
     {
@@ -438,4 +447,23 @@ public class MenuManager : MonoBehaviour
 
         Awake();
     }
+
+    public void OpenStats()
+    {
+        StatsScreen.SetActive(true);
+        TotalCoins = PlayerPrefs.GetInt("TotalCoins");
+        CoinsTxt.SetText("Total Coins Collected: " + TotalCoins);
+        TotalDeaths = PlayerPrefs.GetInt("TotalDeaths");
+        DeathsTxt.SetText("Total Deaths: " + TotalDeaths);
+        TotalJumps = PlayerPrefs.GetInt("TotalJumps");
+        JumpsTxt.SetText("Total Jumps: " + TotalJumps);
+        TotalResets = PlayerPrefs.GetInt("TotalResets");
+        ResetsTxt.SetText("Total Resets: " + TotalResets);
+    }
+
+    public void CloseStats()
+    {
+        StatsScreen.SetActive(false);
+    }
+
 }
