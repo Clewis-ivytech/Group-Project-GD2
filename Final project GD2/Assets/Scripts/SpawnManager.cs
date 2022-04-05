@@ -4,29 +4,39 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject RollerPrefabs;
-    
-    public float spawnPosZ;
-    public float spawnInterval;
-    public float startDelay;
-    public float spawnPosX;
-    public float spawnPosY;
+    [SerializeField] GameObject RollerPrefab;
+    [SerializeField] GameObject BoulderPrefab;
+    [SerializeField] bool Roller;
+    [SerializeField] bool Boulder;
+    [SerializeField] float DestroyTime;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnRoller", startDelay, spawnInterval);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (Roller)
+        {
+            InvokeRepeating("SpawnRoller", 4, 5);
+        }
+        else if (Boulder)
+        {
+            InvokeRepeating("SpawnBoulder", 10, 4);
+        }
+        else
+        {
+            Destroy(gameObject, DestroyTime);
+        }
     }
 
     void SpawnRoller()
     {
-        Vector3 spawnpos = new Vector3(spawnPosX, spawnPosY, spawnPosZ);
-        Instantiate(RollerPrefabs, spawnpos, RollerPrefabs.transform.rotation);
+        Vector3 spawnpos = new Vector3(-15, 50, 362);
+        Instantiate(RollerPrefab, spawnpos, RollerPrefab.transform.rotation);
+    }
+
+    void SpawnBoulder()
+    {
+        Vector3 spawnpos = new Vector3(54.6f, 84f, 1455f);
+        Instantiate(BoulderPrefab, spawnpos, BoulderPrefab.transform.rotation);
     }
 }
