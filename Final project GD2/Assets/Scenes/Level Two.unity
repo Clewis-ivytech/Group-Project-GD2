@@ -3548,6 +3548,7 @@ MonoBehaviour:
   RemmyCoinCollected: 0
   RemmyCount: {fileID: 342373140}
   PlayerScript: {fileID: 1465006150}
+  UnlockTxt: {fileID: 0}
 --- !u!114 &1203466102
 MonoBehaviour:
   m_ObjectHideFlags: 0
