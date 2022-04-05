@@ -4960,7 +4960,6 @@ MonoBehaviour:
   RemmyCoinCollected: 0
   RemmyCount: {fileID: 1433717785}
   PlayerScript: {fileID: 1390194753}
-  Char2Unlock: 0
   UnlockTxt: {fileID: 1196254161}
 --- !u!114 &1459122704
 MonoBehaviour:
