@@ -31,11 +31,29 @@ public class Player : MonoBehaviour
     private int TotalJumps;
     private int TotalResets;
 
+    private int currentChar;
+    private bool char1Active = false;
+    private bool char2Active = false;
+    private bool char3Active = false;
+
 
     // Start is called before the first frame update
     private void Start()
     {
         CoinsCollected = 0;
+        currentChar = PlayerPrefs.GetInt("CharacterSelected");
+        if (currentChar == 1)
+        {
+            char1Active = true;
+        }
+        if (currentChar == 2)
+        {
+            char2Active = true;
+        }
+        if (currentChar == 3)
+        {
+            char3Active = true;
+        }
     }
 
     // Update is called once per frame
@@ -66,83 +84,120 @@ public class Player : MonoBehaviour
             }
         }
 
-        // Go Forward
-        if (Input.GetKey(KeyCode.W) && speed < 50)
+        //King K Roller
+        if (char1Active)
         {
-            playerBody.AddForce(Vector3.forward * Force, ForceMode.Impulse);
-            speed = speed + 1;
-        }
-        if (Input.GetKey(KeyCode.W) == false && speed > 0)
-        {
-            speed = speed - 1;
-        }
-        if (speed == 50)
-        {
-            playerBody.velocity = playerBody.velocity / 2;
-            playerBody.angularVelocity = playerBody.angularVelocity / 2;
-            speed = 0;
-        }
-        // Go Backwards
-        else if (Input.GetKey(KeyCode.S) && backSpeed < 50)
-        {
-            playerBody.AddForce(Vector3.back * Force, ForceMode.Impulse);
-            backSpeed = backSpeed + 1;
-        }
-        if (Input.GetKey(KeyCode.S) == false && backSpeed > 0)
-        {
-            backSpeed = backSpeed - 1;
-        }
-        if (backSpeed == 50)
-        {
-            playerBody.velocity = playerBody.velocity / 2;
-            playerBody.angularVelocity = playerBody.angularVelocity / 2;
-            backSpeed = 0;
-        }
-        // Go Left
-        else if (Input.GetKey(KeyCode.A) && leftSpeed < 50)
-        {
-            playerBody.AddForce(Vector3.left * Force, ForceMode.Impulse);
-            leftSpeed = leftSpeed + 1;
-        }
-        if (Input.GetKey(KeyCode.A) == false && leftSpeed > 0)
-        {
-            leftSpeed = leftSpeed - 1;
-        }
-        if (leftSpeed == 50)
-        {
-            playerBody.velocity = playerBody.velocity / 2;
-            playerBody.angularVelocity = playerBody.angularVelocity / 2;
-            leftSpeed = 0;
-        }
+            player.GetComponent<Rigidbody>().useGravity = true;
+            if (Input.GetKey(KeyCode.W) && speed < 50)
+            {
+                playerBody.AddForce(Vector3.forward * Force, ForceMode.Impulse);
+                speed = speed + 1;
+            }
+            if (Input.GetKey(KeyCode.W) == false && speed > 0)
+            {
+                speed = speed - 1;
+            }
+            if (speed == 50)
+            {
+                playerBody.velocity = playerBody.velocity / 2;
+                playerBody.angularVelocity = playerBody.angularVelocity / 2;
+                speed = 0;
+            }
+            // Go Backwards
+            else if (Input.GetKey(KeyCode.S) && backSpeed < 50)
+            {
+                playerBody.AddForce(Vector3.back * Force, ForceMode.Impulse);
+                backSpeed = backSpeed + 1;
+            }
+            if (Input.GetKey(KeyCode.S) == false && backSpeed > 0)
+            {
+                backSpeed = backSpeed - 1;
+            }
+            if (backSpeed == 50)
+            {
+                playerBody.velocity = playerBody.velocity / 2;
+                playerBody.angularVelocity = playerBody.angularVelocity / 2;
+                backSpeed = 0;
+            }
 
-        //Go Right
-        else if (Input.GetKey(KeyCode.D) && rightSpeed < 50)
-        {
-            playerBody.AddForce(Vector3.right * Force, ForceMode.Impulse);
-            rightSpeed = rightSpeed + 1;
-        }
-        if (Input.GetKey(KeyCode.D) == false && rightSpeed > 0)
-        {
-            rightSpeed = rightSpeed - 1;
-        }
-        if (rightSpeed == 50)
-        {
-            playerBody.velocity = playerBody.velocity / 2;
-            playerBody.angularVelocity = playerBody.angularVelocity / 2;
-            rightSpeed = 0;
-        }
-        // Jump
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
-        {
-            playerBody.AddForce(Vector3.up * upwardsForce);
-            isOnGround = false;
+            // Go Left
+            else if (Input.GetKey(KeyCode.A) && leftSpeed < 50)
+            {
+                playerBody.AddForce(Vector3.left * Force, ForceMode.Impulse);
+                leftSpeed = leftSpeed + 1;
+            }
+            if (Input.GetKey(KeyCode.A) == false && leftSpeed > 0)
+            {
+                leftSpeed = leftSpeed - 1;
+            }
+            if (leftSpeed == 50)
+            {
+                playerBody.velocity = playerBody.velocity / 2;
+                playerBody.angularVelocity = playerBody.angularVelocity / 2;
+                leftSpeed = 0;
+            }
 
-            // jumping
-            TotalJumps = PlayerPrefs.GetInt("TotalJumps");
-            PlayerPrefs.SetInt("TotalJumps", TotalJumps + 1);
+            //Go Right
+            else if (Input.GetKey(KeyCode.D) && rightSpeed < 50)
+            {
+                playerBody.AddForce(Vector3.right * Force, ForceMode.Impulse);
+                rightSpeed = rightSpeed + 1;
+            }
+            if (Input.GetKey(KeyCode.D) == false && rightSpeed > 0)
+            {
+                rightSpeed = rightSpeed - 1;
+            }
+            if (rightSpeed == 50)
+            {
+                playerBody.velocity = playerBody.velocity / 2;
+                playerBody.angularVelocity = playerBody.angularVelocity / 2;
+                rightSpeed = 0;
+            }
+            // Jump
+            if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
+            {
+                playerBody.AddForce(Vector3.up * upwardsForce);
+                isOnGround = false;
 
+                // jumping
+                TotalJumps = PlayerPrefs.GetInt("TotalJumps");
+                PlayerPrefs.SetInt("TotalJumps", TotalJumps + 1);
+
+<<<<<<< HEAD
             TotalJumps = PlayerPrefs.GetInt("LTotalJumps");
             PlayerPrefs.SetInt("LTotalJumps", TotalJumps + 1);
+=======
+            }
+        }
+        //Colin Christ
+        if (char3Active)
+        {
+            player.GetComponent<Rigidbody>().useGravity = false;
+            if (Input.GetKey(KeyCode.Space))
+            {
+                player.transform.Translate(Vector3.up * Force / 3);
+            }
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                player.transform.Translate(Vector3.up * -Force / 3);
+            }
+            if (Input.GetKey(KeyCode.W))
+            {
+                player.transform.Translate(Vector3.forward * Force / 2);
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                player.transform.Translate(Vector3.forward * -Force / 2);
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                player.transform.Translate(Vector3.left * Force / 2);
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                player.transform.Translate(Vector3.left * -Force / 2);
+            }
+>>>>>>> Nathan
         }
         // Reset on purpose
         if (sceneNumber > 0)
