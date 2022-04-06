@@ -57,6 +57,14 @@ public class MenuManager : MonoBehaviour
     private int TotalDeaths;
     private int TotalJumps;
     private int TotalResets;
+    [SerializeField] TMP_Text LCoinsTxt;
+    [SerializeField] TMP_Text LDeathsTxt;
+    [SerializeField] TMP_Text LJumpsTxt;
+    [SerializeField] TMP_Text LResetsTxt;
+    private int LTotalCoins;
+    private int LTotalDeaths;
+    private int LTotalJumps;
+    private int LTotalResets;
 
     private void Awake()
     {
@@ -444,6 +452,10 @@ public class MenuManager : MonoBehaviour
         PlayerPrefs.SetInt("NewLvl5", 0);
         PlayerPrefs.SetInt("NewChar2", 0);
         PlayerPrefs.SetInt("NewChar3", 0);
+        PlayerPrefs.SetInt("TotalCoins", 0);
+        PlayerPrefs.SetInt("TotalDeaths", 0);
+        PlayerPrefs.SetInt("TotalJumps", 0);
+        PlayerPrefs.SetInt("TotalResets", 0);
 
         Awake();
     }
@@ -451,19 +463,30 @@ public class MenuManager : MonoBehaviour
     public void OpenStats()
     {
         StatsScreen.SetActive(true);
+        MainMenuPanal.SetActive(false);
         TotalCoins = PlayerPrefs.GetInt("TotalCoins");
-        CoinsTxt.SetText("Total Coins Collected: " + TotalCoins);
+        CoinsTxt.SetText("Coins Collected: " + TotalCoins);
         TotalDeaths = PlayerPrefs.GetInt("TotalDeaths");
         DeathsTxt.SetText("Total Deaths: " + TotalDeaths);
         TotalJumps = PlayerPrefs.GetInt("TotalJumps");
         JumpsTxt.SetText("Total Jumps: " + TotalJumps);
         TotalResets = PlayerPrefs.GetInt("TotalResets");
         ResetsTxt.SetText("Total Resets: " + TotalResets);
+
+        LTotalCoins = PlayerPrefs.GetInt("LTotalCoins");
+        LCoinsTxt.SetText("Coins Collected: " + LTotalCoins);
+        LTotalDeaths = PlayerPrefs.GetInt("LTotalDeaths");
+        LDeathsTxt.SetText("Total Deaths: " + LTotalDeaths);
+        LTotalJumps = PlayerPrefs.GetInt("LTotalJumps");
+        LJumpsTxt.SetText("Total Jumps: " + LTotalJumps);
+        LTotalResets = PlayerPrefs.GetInt("LTotalResets");
+        LResetsTxt.SetText("Total Resets: " + LTotalResets);
     }
 
     public void CloseStats()
     {
         StatsScreen.SetActive(false);
+        MainMenuPanal.SetActive(true);
     }
 
 }

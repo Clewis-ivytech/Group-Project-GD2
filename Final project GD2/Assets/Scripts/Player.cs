@@ -141,6 +141,8 @@ public class Player : MonoBehaviour
             TotalJumps = PlayerPrefs.GetInt("TotalJumps");
             PlayerPrefs.SetInt("TotalJumps", TotalJumps + 1);
 
+            TotalJumps = PlayerPrefs.GetInt("LTotalJumps");
+            PlayerPrefs.SetInt("LTotalJumps", TotalJumps + 1);
         }
         // Reset on purpose
         if (sceneNumber > 0)
@@ -149,8 +151,10 @@ public class Player : MonoBehaviour
             {
                 //when resetting
                 TotalResets = PlayerPrefs.GetInt("TotalResets");
-                PlayerPrefs.SetInt("TotalResetss", TotalResets + 1);
+                PlayerPrefs.SetInt("TotalResets", TotalResets + 1);
 
+                TotalResets = PlayerPrefs.GetInt("LTotalResets");
+                PlayerPrefs.SetInt("LTotalResets", TotalResets + 1);
 
                 //player.transform.position = new Vector3(-15, 10, -19);
                 playerBody.velocity = Vector3.zero;
@@ -179,6 +183,9 @@ public class Player : MonoBehaviour
             //when dying
             TotalDeaths = PlayerPrefs.GetInt("TotalDeaths");
             PlayerPrefs.SetInt("TotalDeaths", TotalDeaths + 1);
+
+            TotalDeaths = PlayerPrefs.GetInt("LTotalDeaths");
+            PlayerPrefs.SetInt("LTotalDeaths", TotalDeaths + 1);
 
             playerBody.velocity = Vector3.zero;
             playerBody.angularVelocity = Vector3.zero;
