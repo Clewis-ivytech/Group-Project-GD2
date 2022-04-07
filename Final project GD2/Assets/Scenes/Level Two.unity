@@ -1555,7 +1555,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &566546438
 BoxCollider:
@@ -2039,7 +2039,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &762344912
 BoxCollider:
@@ -3548,6 +3548,7 @@ MonoBehaviour:
   RemmyCoinCollected: 0
   RemmyCount: {fileID: 342373140}
   PlayerScript: {fileID: 1465006150}
+  UnlockTxt: {fileID: 0}
 --- !u!114 &1203466102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4525,7 +4526,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &1468326707
 BoxCollider:
@@ -5355,7 +5356,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &1760689237
 BoxCollider:
