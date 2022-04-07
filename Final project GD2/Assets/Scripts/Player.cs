@@ -169,6 +169,7 @@ public class Player : MonoBehaviour
         if (char3Active)
         {
             player.GetComponent<Rigidbody>().useGravity = false;
+            player.GetComponent<Rigidbody>().freezeRotation = true  ;
             if (Input.GetKey(KeyCode.Space))
             {
                 player.transform.Translate(Vector3.up * Force / 3);
