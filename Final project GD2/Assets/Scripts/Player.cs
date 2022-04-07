@@ -31,6 +31,15 @@ public class Player : MonoBehaviour
     private int TotalJumps;
     private int TotalResets;
 
+    private float xHChange;
+    private float yHChange;
+    private float zHChange;
+    private float forwardTimer;
+    private float backwardTimer;
+    private float leftTimer;
+    private float rightTimer;
+    private float upTimer;
+
     private int currentChar;
     private bool char1Active = false;
     private bool char2Active = false;
@@ -163,11 +172,28 @@ public class Player : MonoBehaviour
                 TotalJumps = PlayerPrefs.GetInt("TotalJumps");
                 PlayerPrefs.SetInt("TotalJumps", TotalJumps + 1);
 
-<<<<<<< HEAD
+
             TotalJumps = PlayerPrefs.GetInt("LTotalJumps");
             PlayerPrefs.SetInt("LTotalJumps", TotalJumps + 1);
-=======
+
             }
+        }
+
+        //Heritic
+        if (char2Active)
+        {
+            //Charge Forward
+            player.GetComponent<Rigidbody>().useGravity = true;
+            if (Input.GetKeyDown(KeyCode.W))
+            { 
+                forwardTimer = (Time.time);
+            }
+            if (Input.GetKeyUp(KeyCode.W))
+            {
+                zHChange = Mathf.Pow(1.01f, forwardTimer);
+                forwardTimer = 0;
+            }
+
         }
         //Colin Christ
         if (char3Active)
@@ -197,7 +223,7 @@ public class Player : MonoBehaviour
             {
                 player.transform.Translate(Vector3.left * -Force / 2);
             }
->>>>>>> Nathan
+
         }
         // Reset on purpose
         if (sceneNumber > 0)
