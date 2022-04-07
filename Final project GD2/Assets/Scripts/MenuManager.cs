@@ -37,10 +37,10 @@ public class MenuManager : MonoBehaviour
     [HideInInspector] public bool Lvl4Lock;
     [HideInInspector] public bool Lvl5Lock;
     private int index;
-    [SerializeField] bool Dev;
     [SerializeField] GameObject DevObj;
     [HideInInspector] public bool DevMode;
     [SerializeField] TMP_Text DevTxt;
+    private int DevPref;
     private int boolean;
     [SerializeField] GameObject QuitConfirm;
     [SerializeField] GameObject ResetConfirm;
@@ -127,11 +127,6 @@ public class MenuManager : MonoBehaviour
         {
             Char3Lock = false;
         }
-        
-        if (Dev)
-        {
-            DevObj.SetActive(true);
-        }
 
         index = PlayerPrefs.GetInt("CharacterSelected");
 
@@ -156,6 +151,12 @@ public class MenuManager : MonoBehaviour
             PlayerPrefs.SetInt("3LockMessage", 2);
             UnlockTxt.SetActive(true);
             timeWhenDisappear = Time.time + timeToAppear;
+        }
+
+        DevPref = PlayerPrefs.GetInt("DevMode");
+        if (DevPref == 1)
+        {
+            DevObj.SetActive(true);
         }
     }
 

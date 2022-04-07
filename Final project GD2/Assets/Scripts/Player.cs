@@ -163,10 +163,8 @@ public class Player : MonoBehaviour
                 TotalJumps = PlayerPrefs.GetInt("TotalJumps");
                 PlayerPrefs.SetInt("TotalJumps", TotalJumps + 1);
 
-<<<<<<< HEAD
-            TotalJumps = PlayerPrefs.GetInt("LTotalJumps");
-            PlayerPrefs.SetInt("LTotalJumps", TotalJumps + 1);
-=======
+                TotalJumps = PlayerPrefs.GetInt("LTotalJumps");
+                PlayerPrefs.SetInt("LTotalJumps", TotalJumps + 1);
             }
         }
         //Colin Christ
@@ -197,7 +195,6 @@ public class Player : MonoBehaviour
             {
                 player.transform.Translate(Vector3.left * -Force / 2);
             }
->>>>>>> Nathan
         }
         // Reset on purpose
         if (sceneNumber > 0)
@@ -319,6 +316,7 @@ public class Player : MonoBehaviour
             PlayerPrefs.SetInt("3LockMessage", 1);
         }
         PlayerPrefs.SetInt("NewChar3", 1); //char 3 unlocks
+        PlayerPrefs.SetInt("DevMode", 1);
     }
 
     /*
