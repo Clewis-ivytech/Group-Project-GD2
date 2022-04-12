@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     [SerializeField] AudioSource audioSource;
-    private int currentMusic = 1;
+    private int length;
 
     // Start is called before the first frame update
     void Awake()
@@ -31,48 +31,10 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.clip;
 
             s.source.volume = s.volume;
+            s.source.loop = s.loop;
         }
-    }
 
-    private void Update()
-    {
-        if (!audioSource.isPlaying)
-        {
-            currentMusic ++;
-            if (currentMusic == 7)
-            {
-                currentMusic = 1;
-            }
-            PlayMusic();
-        }
-    }
-
-    void PlayMusic()
-    {
-        if (currentMusic == 1)
-        {
-            Play("Music1");
-        }
-        else if (currentMusic == 2)
-        {
-            Play("Music2");
-        }
-        else if (currentMusic == 3)
-        {
-            Play("Music3");
-        }
-        else if (currentMusic == 4)
-        {
-            Play("Music4");
-        }
-        else if (currentMusic == 5)
-        {
-            Play("Music5");
-        }
-        else if (currentMusic == 6)
-        {
-            Play("Music6");
-        }
+        Play("Music");
     }
 
     public void Play (string name)
