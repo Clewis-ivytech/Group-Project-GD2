@@ -180,6 +180,8 @@ public class Player : MonoBehaviour
 
             TotalJumps = PlayerPrefs.GetInt("LTotalJumps");
             PlayerPrefs.SetInt("LTotalJumps", TotalJumps + 1);
+
+            FindObjectOfType<AudioManager>().Play("Jump");
         }
         //}
 
