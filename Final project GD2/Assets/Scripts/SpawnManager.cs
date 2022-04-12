@@ -6,8 +6,10 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] GameObject RollerPrefab;
     [SerializeField] GameObject BoulderPrefab;
+    [SerializeField] GameObject IceBoulderPrefab;
     [SerializeField] bool Roller;
     [SerializeField] bool Boulder;
+    [SerializeField] bool IceBoulder;
     [SerializeField] float DestroyTime;
 
 
@@ -21,6 +23,10 @@ public class SpawnManager : MonoBehaviour
         else if (Boulder)
         {
             InvokeRepeating("SpawnBoulder", 10, 4);
+        }
+        else if (IceBoulder)
+        {
+            InvokeRepeating("SpawnIceBoulder", 0, 6);
         }
         else
         {
@@ -38,5 +44,11 @@ public class SpawnManager : MonoBehaviour
     {
         Vector3 spawnpos = new Vector3(54.6f, 84f, 1455f);
         Instantiate(BoulderPrefab, spawnpos, BoulderPrefab.transform.rotation);
+    }
+
+    void SpawnIceBoulder()
+    {
+        Vector3 spawnpos = new Vector3(-15f, 75f, 60f);
+        Instantiate(IceBoulderPrefab, spawnpos, IceBoulderPrefab.transform.rotation);
     }
 }
