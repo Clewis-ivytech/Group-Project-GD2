@@ -31,14 +31,14 @@ public class Player : MonoBehaviour
     private int TotalJumps;
     private int TotalResets;
 
-    private float xHChange;
-    private float yHChange;
-    private float zHChange;
-    private float forwardTimer;
-    private float backwardTimer;
-    private float leftTimer;
-    private float rightTimer;
-    private float upTimer;
+    public float xHChange;
+    public float yHChange;
+    public float zHChange;
+    public float forwardTimer;
+    public float backwardTimer;
+    public float leftTimer;
+    public float rightTimer;
+    public float upTimer;
 
     private int currentChar;
     private bool char1Active = false;
@@ -184,14 +184,58 @@ public class Player : MonoBehaviour
         {
             //Charge Forward
             player.GetComponent<Rigidbody>().useGravity = true;
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKey(KeyCode.W))
             { 
                 forwardTimer = (Time.time);
             }
-            if (Input.GetKeyUp(KeyCode.W))
+            if (!Input.GetKeyUp(KeyCode.W))
             {
-                zHChange = Mathf.Pow(1.01f, forwardTimer);
+                zHChange = zHChange + Mathf.Pow(1.00001f, forwardTimer);
                 forwardTimer = 0;
+            }
+            // Charge Left
+            if (Input.GetKey(KeyCode.A))
+            {
+               leftTimer = (Time.time);
+            } 
+            if (!Input.GetKey(KeyCode.A))
+            {
+                xHChange = xHChange + Mathf.Pow(1.00001f, leftTimer);
+                leftTimer = 0;
+            }
+            // Charge Right
+            if (Input.GetKey(KeyCode.D))
+            {
+                rightTimer = (Time.time);
+            }
+            if (!Input.GetKey(KeyCode.D))
+            {
+                xHChange = xHChange - Mathf.Pow(1.00001f, rightTimer);
+                rightTimer = 0;
+            }
+            // Charge Backward
+            if (Input.GetKey(KeyCode.S))
+            {
+                backwardTimer = (Time.time);
+            }
+            if (!Input.GetKey(KeyCode.S))
+            {
+                zHChange = zHChange - Mathf.Pow(1.1f, backwardTimer);
+                backwardTimer = 0;
+            }
+            // Change Up
+            if (Input.GetKey(KeyCode.Space))
+            {
+                upTimer = (Time.time);
+            }
+            if (!Input.GetKey(KeyCode.Space))
+            {
+                yHChange = yHChange + Mathf.Pow(1.00001f, upTimer);
+                upTimer = 0;
+            }
+            if (Input.GetKeyDown(KeyCode.X))//!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.Space))
+            {
+                player.transform.position = new Vector3(player.transform.position.x + xHChange, player.transform.position.y + yHChange, player.transform.position.z + zHChange);
             }
 
         }
