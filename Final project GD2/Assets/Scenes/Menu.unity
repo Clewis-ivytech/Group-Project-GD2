@@ -3500,7 +3500,6 @@ MonoBehaviour:
   Lvl3Lock: 0
   Lvl4Lock: 0
   Lvl5Lock: 0
-  Dev: 1
   DevObj: {fileID: 1251731587}
   DevMode: 0
   DevTxt: {fileID: 948618441}
@@ -11947,7 +11946,7 @@ GameObject:
   - component: {fileID: 1773778734}
   - component: {fileID: 1773778733}
   m_Layer: 5
-  m_Name: Names
+  m_Name: Credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11969,8 +11968,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 400}
-  m_SizeDelta: {x: 1000, y: 50}
+  m_AnchoredPosition: {x: 0, y: 500}
+  m_SizeDelta: {x: 1700, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1773778733
 MonoBehaviour:
@@ -11992,8 +11991,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nathan Elias\n\nColin Lewis\n\nJT Detwiler\n\nDax Corwin\n\n\nMr. Grue
-    (he helped ig)
+  m_text: 'Nathan Elias\n\nColin Lewis\n\nJT Detwiler\n\nDax Corwin\n\n\nKing K.
+    Rool:    akennedy007\n(original by Nintendo)\n\nColin Christ: Studio New Punch'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -12020,8 +12019,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70
-  m_fontSizeBase: 70
+  m_fontSize: 56
+  m_fontSizeBase: 56
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

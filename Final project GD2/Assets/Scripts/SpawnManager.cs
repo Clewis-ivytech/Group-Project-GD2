@@ -26,7 +26,7 @@ public class SpawnManager : MonoBehaviour
         }
         else if (IceBoulder)
         {
-            InvokeRepeating("SpawnIceBoulder", 2, 6);
+            InvokeRepeating("SpawnIceBoulder", 0, 6);
         }
         else
         {
@@ -49,6 +49,6 @@ public class SpawnManager : MonoBehaviour
     void SpawnIceBoulder()
     {
         Vector3 spawnpos = new Vector3(-15f, 75f, 60f);
-        Instantiate(BoulderPrefab, spawnpos, BoulderPrefab.transform.rotation);
+        Instantiate(IceBoulderPrefab, spawnpos, IceBoulderPrefab.transform.rotation);
     }
 }
