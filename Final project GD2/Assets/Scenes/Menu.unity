@@ -6841,6 +6841,11 @@ MonoBehaviour:
     volume: 0.25
     pitch: 0
     source: {fileID: 0}
+  - name: BossMusic
+    clip: {fileID: 8300000, guid: dfefb2334633a4d9a8be75504b49ccef, type: 3}
+    volume: 0.25
+    pitch: 0
+    source: {fileID: 0}
   audioSource: {fileID: 442347396}
 --- !u!4 &1011042393
 Transform:
