@@ -1773,8 +1773,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RollerPrefab: {fileID: 6632651196512681169, guid: 6cb4bc8f1822f4b8ca70f4ce1794b772, type: 3}
   BoulderPrefab: {fileID: 0}
+  IceBoulderPrefab: {fileID: 0}
+  IceBoulder2Prefab: {fileID: 0}
+  IceBoulder3Prefab: {fileID: 0}
   Roller: 1
   Boulder: 0
+  IceBoulder: 0
   DestroyTime: 0
 --- !u!1001 &576579528
 PrefabInstance:
