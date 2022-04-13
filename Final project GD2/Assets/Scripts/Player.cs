@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
     private float backSpeed;
     [HideInInspector] public float CoinsCollected = 0;
     public int sceneNumber = 1;
-    private bool Active;
     private int Lock3;
 
     private int NewLvl2;

@@ -6676,7 +6676,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 98c9dae6ac49344f79cbca4a81fef2aa, type: 3}
+  m_Texture: {fileID: 2800000, guid: aaf98040cad0644078c49a1b5dfc6b5b, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -6805,11 +6805,11 @@ MonoBehaviour:
   sounds:
   - name: Jump
     clip: {fileID: 8300000, guid: c29a3fa8793d54411ab52c7b84d5d295, type: 3}
-    volume: 0.5
+    volume: 0.02
     loop: 0
     source: {fileID: 0}
   - name: Music
-    clip: {fileID: 8300000, guid: acf2521fed44c4711aafa434b3c99a04, type: 3}
+    clip: {fileID: 8300000, guid: 3a7224da009ba4ec29e800996c8824d1, type: 3}
     volume: 0.25
     loop: 1
     source: {fileID: 0}
@@ -12141,7 +12141,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Nathan Elias\n\nColin Lewis\n\nJT Detwiler\n\nDax Corwin\n\n\nKing K.
-    Rool:    akennedy007\n(original by Nintendo)\n\nColin Christ: Studio New Punch'
+    Rool:    akennedy007\n(original by Nintendo)\n\nColin Christ: Studio New Punch\n\nCoins:
+    UzayD'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
