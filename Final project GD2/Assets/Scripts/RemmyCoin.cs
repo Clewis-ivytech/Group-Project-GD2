@@ -37,6 +37,8 @@ public class RemmyCoin : MonoBehaviour
             TotalCoins = PlayerPrefs.GetInt("TotalCoins");
             PlayerPrefs.SetInt("TotalCoins", TotalCoins + 1);
 
+            TotalCoins = PlayerPrefs.GetInt("LTotalCoins");
+            PlayerPrefs.SetInt("LTotalCoins", TotalCoins + 1);
         }
     }
 

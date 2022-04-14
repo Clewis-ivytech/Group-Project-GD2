@@ -37,10 +37,10 @@ public class MenuManager : MonoBehaviour
     [HideInInspector] public bool Lvl4Lock;
     [HideInInspector] public bool Lvl5Lock;
     private int index;
-    [SerializeField] bool Dev;
     [SerializeField] GameObject DevObj;
     [HideInInspector] public bool DevMode;
     [SerializeField] TMP_Text DevTxt;
+    private int DevPref;
     private int boolean;
     [SerializeField] GameObject QuitConfirm;
     [SerializeField] GameObject ResetConfirm;
@@ -57,9 +57,36 @@ public class MenuManager : MonoBehaviour
     private int TotalDeaths;
     private int TotalJumps;
     private int TotalResets;
+    [SerializeField] TMP_Text LCoinsTxt;
+    [SerializeField] TMP_Text LDeathsTxt;
+    [SerializeField] TMP_Text LJumpsTxt;
+    [SerializeField] TMP_Text LResetsTxt;
+    private int LTotalCoins;
+    private int LTotalDeaths;
+    private int LTotalJumps;
+    private int LTotalResets;
+    private AudioManager Audio;
+    private int mute;
+    public bool muted;
+    [SerializeField] GameObject muteCheck;
+    [SerializeField] AudioManager manager;
 
     private void Awake()
     {
+        Audio = FindObjectOfType<AudioManager>();
+
+        mute = PlayerPrefs.GetInt("Mute");
+        if (mute == 1)
+        {
+            muted = true;
+            muteCheck.SetActive(true);
+        }
+        else
+        {
+            muted = false;
+            muteCheck.SetActive(false);
+        }
+
         boolean = PlayerPrefs.GetInt("Lvl2Lock");
         if (boolean == 1)
         {
@@ -119,11 +146,6 @@ public class MenuManager : MonoBehaviour
         {
             Char3Lock = false;
         }
-        
-        if (Dev)
-        {
-            DevObj.SetActive(true);
-        }
 
         index = PlayerPrefs.GetInt("CharacterSelected");
 
@@ -149,6 +171,12 @@ public class MenuManager : MonoBehaviour
             UnlockTxt.SetActive(true);
             timeWhenDisappear = Time.time + timeToAppear;
         }
+
+        DevPref = PlayerPrefs.GetInt("DevMode");
+        if (DevPref == 1)
+        {
+            DevObj.SetActive(true);
+        }
     }
 
     private void Update()
@@ -162,6 +190,7 @@ public class MenuManager : MonoBehaviour
     public void LoadLevelOne()
     {
         SceneManager.LoadScene(1);
+        Audio.Play("Click");
     }
 
     public void LoadLevelTwo()
@@ -169,6 +198,7 @@ public class MenuManager : MonoBehaviour
         if (Lvl2Lock || DevMode)
         {
             SceneManager.LoadScene(2);
+            Audio.Play("Click");
         }
     }
 
@@ -177,6 +207,7 @@ public class MenuManager : MonoBehaviour
         if (Lvl3Lock || DevMode)
         {
             SceneManager.LoadScene(3);
+            Audio.Play("Click");
         }
     }
 
@@ -185,6 +216,7 @@ public class MenuManager : MonoBehaviour
         if (Lvl4Lock || DevMode)
         {
             SceneManager.LoadScene(4);
+            Audio.Play("Click");
         }
     }
 
@@ -193,6 +225,7 @@ public class MenuManager : MonoBehaviour
         if (Lvl5Lock || DevMode)
         {
             SceneManager.LoadScene(5);
+            Audio.Play("Click");
         }
     }
 
@@ -201,6 +234,7 @@ public class MenuManager : MonoBehaviour
         LevelPanal.SetActive(true);
         MainMenuPanal.SetActive(false);
         CharacterDiaplay.SetActive(false);
+        Audio.Play("Click");
 
         if (Lvl2Lock || DevMode)
         {
@@ -244,6 +278,7 @@ public class MenuManager : MonoBehaviour
         MainMenuPanal.SetActive(true);
         LevelPanal.SetActive(false);
         CharacterDiaplay.SetActive(true);
+        Audio.Play("Click");
     }
 
     public void SettingsPanelOn()
@@ -251,6 +286,7 @@ public class MenuManager : MonoBehaviour
         SettingsPanal.SetActive(true);
         MainMenuPanal.SetActive(false);
         CharacterDiaplay.SetActive(false);
+        Audio.Play("Click");
     }
 
     public void SettingsPanelOff()
@@ -258,18 +294,22 @@ public class MenuManager : MonoBehaviour
         MainMenuPanal.SetActive(true);
         SettingsPanal.SetActive(false);
         CharacterDiaplay.SetActive(true);
+        Audio.Play("Click");
+        Audio.Play("Click");
     }
 
     public void CreditsOn()
     {
         SettingsPanal.SetActive(false);
         Credits.SetActive(true);
+        Audio.Play("Click");
     }
 
     public void CreditsOff()
     {
         SettingsPanal.SetActive(true);
         Credits.SetActive(false);
+        Audio.Play("Click");
     }
 
     public void CharacterPanelOn()
@@ -277,6 +317,7 @@ public class MenuManager : MonoBehaviour
         CharacterPanal.SetActive(true);
         MainMenuPanal.SetActive(false);
         Spotlight.SetActive(true);
+        Audio.Play("Click");
 
         if (Char2Lock || DevMode)
         {
@@ -302,6 +343,7 @@ public class MenuManager : MonoBehaviour
         CharacterPanal.SetActive(false);
         MainMenuPanal.SetActive(true);
         Spotlight.SetActive(false);
+        Audio.Play("Click");
     }
 
     public void CharacterOne()
@@ -313,6 +355,7 @@ public class MenuManager : MonoBehaviour
         Character2Txt.SetActive(false);
         Character3Txt.SetActive(false);
         PlayerPrefs.SetInt("CharacterSelected", 1);
+        Audio.Play("Click");
 
         if (Menu)
         {
@@ -333,6 +376,7 @@ public class MenuManager : MonoBehaviour
             Character2Txt.SetActive(true);
             Character3Txt.SetActive(false);
             PlayerPrefs.SetInt("CharacterSelected", 2);
+            Audio.Play("Click");
 
             if (Menu)
             {
@@ -358,6 +402,7 @@ public class MenuManager : MonoBehaviour
             Character2Txt.SetActive(false);
             Character3Txt.SetActive(true);
             PlayerPrefs.SetInt("CharacterSelected", 3);
+            Audio.Play("Click");
 
             if (Menu)
             {
@@ -378,22 +423,26 @@ public class MenuManager : MonoBehaviour
         {
             DevMode = false;
             DevTxt.SetText("Dev Mode");
+            Audio.Play("Click");
         }
         else
         {
             DevMode = true;
             DevTxt.SetText("Dev Mode*");
+            Audio.Play("Click");
         }
     }
 
     public void OpenQuitConfirm()
     {
         QuitConfirm.SetActive(true);
+        Audio.Play("Click");
     }
 
     public void CloseQuitConfirm()
     {
         QuitConfirm.SetActive(false);
+        Audio.Play("Click");
     }
 
     public void QuitGame()
@@ -412,11 +461,13 @@ public class MenuManager : MonoBehaviour
     public void OpenResetConfirm()
     {
         ResetConfirm.SetActive(true);
+        Audio.Play("Click");
     }
 
     public void CloseResetConfirm()
     {
         ResetConfirm.SetActive(false);
+        Audio.Play("Click");
     }
 
     public void ResetProgress()
@@ -444,6 +495,10 @@ public class MenuManager : MonoBehaviour
         PlayerPrefs.SetInt("NewLvl5", 0);
         PlayerPrefs.SetInt("NewChar2", 0);
         PlayerPrefs.SetInt("NewChar3", 0);
+        PlayerPrefs.SetInt("TotalCoins", 0);
+        PlayerPrefs.SetInt("TotalDeaths", 0);
+        PlayerPrefs.SetInt("TotalJumps", 0);
+        PlayerPrefs.SetInt("TotalResets", 0);
 
         Awake();
     }
@@ -451,19 +506,51 @@ public class MenuManager : MonoBehaviour
     public void OpenStats()
     {
         StatsScreen.SetActive(true);
+        MainMenuPanal.SetActive(false);
+        Audio.Play("Click");
+
         TotalCoins = PlayerPrefs.GetInt("TotalCoins");
-        CoinsTxt.SetText("Total Coins Collected: " + TotalCoins);
+        CoinsTxt.SetText("Coins Collected: " + TotalCoins);
         TotalDeaths = PlayerPrefs.GetInt("TotalDeaths");
         DeathsTxt.SetText("Total Deaths: " + TotalDeaths);
         TotalJumps = PlayerPrefs.GetInt("TotalJumps");
         JumpsTxt.SetText("Total Jumps: " + TotalJumps);
         TotalResets = PlayerPrefs.GetInt("TotalResets");
         ResetsTxt.SetText("Total Resets: " + TotalResets);
+
+        LTotalCoins = PlayerPrefs.GetInt("LTotalCoins");
+        LCoinsTxt.SetText("Coins Collected: " + LTotalCoins);
+        LTotalDeaths = PlayerPrefs.GetInt("LTotalDeaths");
+        LDeathsTxt.SetText("Total Deaths: " + LTotalDeaths);
+        LTotalJumps = PlayerPrefs.GetInt("LTotalJumps");
+        LJumpsTxt.SetText("Total Jumps: " + LTotalJumps);
+        LTotalResets = PlayerPrefs.GetInt("LTotalResets");
+        LResetsTxt.SetText("Total Resets: " + LTotalResets);
     }
 
     public void CloseStats()
     {
         StatsScreen.SetActive(false);
+        MainMenuPanal.SetActive(true);
+        Audio.Play("Click");
+    }
+
+    public void MuteToggle()
+    {
+        if (muted)
+        {
+            muted = false;
+            muteCheck.SetActive(false);
+            PlayerPrefs.SetInt("Mute", 0);
+            Audio.Play("Click");
+        }
+        else
+        {
+            muted = true;
+            muteCheck.SetActive(true);
+            PlayerPrefs.SetInt("Mute", 1);
+            Audio.Play("Click");
+        }
     }
 
 }
