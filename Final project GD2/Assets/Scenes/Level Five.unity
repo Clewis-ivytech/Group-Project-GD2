@@ -1741,7 +1741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &541013435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2070,8 +2070,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RollerPrefab: {fileID: 0}
   BoulderPrefab: {fileID: 0}
+  IceBoulderPrefab: {fileID: 0}
+  IceBoulder2Prefab: {fileID: 0}
+  IceBoulder3Prefab: {fileID: 0}
   Roller: 0
   Boulder: 0
+  IceBoulder: 0
   DestroyTime: 0
 --- !u!1 &611062135
 GameObject:
@@ -4707,8 +4711,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RollerPrefab: {fileID: 0}
   BoulderPrefab: {fileID: 9147723191963516157, guid: 4c652ce791e06483e9dbec458f90c2f1, type: 3}
+  IceBoulderPrefab: {fileID: 0}
+  IceBoulder2Prefab: {fileID: 0}
+  IceBoulder3Prefab: {fileID: 0}
   Roller: 0
   Boulder: 1
+  IceBoulder: 0
   DestroyTime: 0
 --- !u!4 &1634500676
 Transform:
