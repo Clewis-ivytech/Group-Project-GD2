@@ -11,7 +11,6 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
-    [SerializeField] AudioSource audioSource;
     public int level;
     public int constlevel = 0;
 
@@ -118,11 +117,13 @@ public class AudioManager : MonoBehaviour
         mute = PlayerPrefs.GetInt("Mute");
         if (mute == 1)
         {
-            gameObject.GetComponent<AudioListener>().enabled = false;
+            //gameObject.GetComponent<AudioListener>().enabled = false;
+            AudioListener.volume = 0;
         }
         else
         {
-            gameObject.GetComponent<AudioListener>().enabled = true;
+            //gameObject.GetComponent<AudioListener>().enabled = true;
+            AudioListener.volume = 1;
         }
     }
 }
