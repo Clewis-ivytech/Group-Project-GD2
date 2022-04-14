@@ -198,3 +198,13 @@ C# parse time         : 370ms
 candidates check time : 44ms
 console write time    : 1ms
 
+[api-updater (non-obsolete-error-filter)] 4/13/2022 10:20:16 PM : Starting /Users/maclabguest/Desktop/Game Design/Unity/2020.3.7f1/Unity.app/Contents/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 160.289ms
+moved types parse time: 329ms
+candidates parse time : 1ms
+C# parse time         : 814ms
+candidates check time : 74ms
+console write time    : 2ms
+
