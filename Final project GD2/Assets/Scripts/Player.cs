@@ -34,6 +34,15 @@ public class Player : MonoBehaviour
 
     private AudioManager Audio;
 
+    public float xHChange;
+    public float yHChange;
+    public float zHChange;
+    public float forwardTimer;
+    public float backwardTimer;
+    public float leftTimer;
+    public float rightTimer;
+    public float upTimer;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -43,7 +52,7 @@ public class Player : MonoBehaviour
         Audio = FindObjectOfType<AudioManager>();
 
         Audio.level = sceneNumber;
-        Audio.Load();
+        //Audio.Load();
     }
 
     // Update is called once per frame
@@ -74,121 +83,210 @@ public class Player : MonoBehaviour
             }
         }
 
-        //Colin Christ
-        if (currentChar == 3)
+        if (currentChar == 1 || currentChar == 3)
         {
-            isOnGround = true;
+            playerBody.freezeRotation = false;
+            //Colin Christ
+            if (currentChar == 3)
+            {
+                isOnGround = true;
 
-            /*player.GetComponent<Rigidbody>().useGravity = false;
-            if (Input.GetKey(KeyCode.Space))
-            {
-                player.transform.Translate(Vector3.up * Force / 3);
+                /*player.GetComponent<Rigidbody>().useGravity = false;
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    player.transform.Translate(Vector3.up * Force / 3);
+                }
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    player.transform.Translate(Vector3.up * -Force / 3);
+                }
+                if (Input.GetKey(KeyCode.W))
+                {
+                    player.transform.Translate(Vector3.forward * Force / 2);
+                }
+                if (Input.GetKey(KeyCode.S))
+                {
+                    player.transform.Translate(Vector3.forward * -Force / 2);
+                }
+                if (Input.GetKey(KeyCode.A))
+                {
+                    player.transform.Translate(Vector3.left * Force / 2);
+                }
+                if (Input.GetKey(KeyCode.D))
+                {
+                    player.transform.Translate(Vector3.left * -Force / 2);
+                } */
             }
-            if (Input.GetKey(KeyCode.LeftShift))
+
+            //else {
+            player.GetComponent<Rigidbody>().useGravity = true;
+            if (Input.GetKey(KeyCode.W) && speed < 50)
             {
-                player.transform.Translate(Vector3.up * -Force / 3);
+                playerBody.AddForce(Vector3.forward * Force, ForceMode.Impulse);
+                speed = speed + 1;
             }
+            if (Input.GetKey(KeyCode.W) == false && speed > 0)
+            {
+                speed = speed - 1;
+            }
+            if (speed == 50)
+            {
+                playerBody.velocity = playerBody.velocity / 2;
+                playerBody.angularVelocity = playerBody.angularVelocity / 2;
+                speed = 0;
+            }
+            // Go Backwards
+            else if (Input.GetKey(KeyCode.S) && backSpeed < 50)
+            {
+                playerBody.AddForce(Vector3.back * Force, ForceMode.Impulse);
+                backSpeed = backSpeed + 1;
+            }
+            if (Input.GetKey(KeyCode.S) == false && backSpeed > 0)
+            {
+                backSpeed = backSpeed - 1;
+            }
+            if (backSpeed == 50)
+            {
+                playerBody.velocity = playerBody.velocity / 2;
+                playerBody.angularVelocity = playerBody.angularVelocity / 2;
+                backSpeed = 0;
+            }
+
+            // Go Left
+            else if (Input.GetKey(KeyCode.A) && leftSpeed < 50)
+            {
+                playerBody.AddForce(Vector3.left * Force, ForceMode.Impulse);
+                leftSpeed = leftSpeed + 1;
+            }
+            if (Input.GetKey(KeyCode.A) == false && leftSpeed > 0)
+            {
+                leftSpeed = leftSpeed - 1;
+            }
+            if (leftSpeed == 50)
+            {
+                playerBody.velocity = playerBody.velocity / 2;
+                playerBody.angularVelocity = playerBody.angularVelocity / 2;
+                leftSpeed = 0;
+            }
+
+            //Go Right
+            else if (Input.GetKey(KeyCode.D) && rightSpeed < 50)
+            {
+                playerBody.AddForce(Vector3.right * Force, ForceMode.Impulse);
+                rightSpeed = rightSpeed + 1;
+            }
+            if (Input.GetKey(KeyCode.D) == false && rightSpeed > 0)
+            {
+                rightSpeed = rightSpeed - 1;
+            }
+            if (rightSpeed == 50)
+            {
+                playerBody.velocity = playerBody.velocity / 2;
+                playerBody.angularVelocity = playerBody.angularVelocity / 2;
+                rightSpeed = 0;
+            }
+            // Jump
+            if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
+            {
+                playerBody.AddForce(Vector3.up * upwardsForce);
+                isOnGround = false;
+
+                // jumping
+                TotalJumps = PlayerPrefs.GetInt("TotalJumps");
+                PlayerPrefs.SetInt("TotalJumps", TotalJumps + 1);
+
+                TotalJumps = PlayerPrefs.GetInt("LTotalJumps");
+                PlayerPrefs.SetInt("LTotalJumps", TotalJumps + 1);
+
+                Audio.Play("Jump");
+            }
+            //}
+        }
+        else
+        {
+            //Charge Forward
+            player.GetComponent<Rigidbody>().useGravity = true;
             if (Input.GetKey(KeyCode.W))
             {
-                player.transform.Translate(Vector3.forward * Force / 2);
+                forwardTimer += (Time.deltaTime);
             }
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKeyUp(KeyCode.W))
             {
-                player.transform.Translate(Vector3.forward * -Force / 2);
+                zHChange = zHChange + Mathf.Pow(1.8f, forwardTimer);
+                forwardTimer = 0;
             }
+            // Charge Left
             if (Input.GetKey(KeyCode.A))
             {
-                player.transform.Translate(Vector3.left * Force / 2);
+                leftTimer += (Time.deltaTime);
             }
+            if (Input.GetKeyUp(KeyCode.A))
+            {
+                xHChange = xHChange - Mathf.Pow(1.8f, leftTimer);
+                leftTimer = 0;
+            }
+            // Charge Right
             if (Input.GetKey(KeyCode.D))
             {
-                player.transform.Translate(Vector3.left * -Force / 2);
-            } */
+                rightTimer += (Time.deltaTime);
+            }
+            if (Input.GetKeyUp(KeyCode.D))
+            {
+                xHChange = xHChange + Mathf.Pow(1.8f, rightTimer);
+                rightTimer = 0;
+            }
+            // Charge Backward
+            if (Input.GetKey(KeyCode.S))
+            {
+                backwardTimer += (Time.deltaTime);
+            }
+            if (Input.GetKeyUp(KeyCode.S))
+            {
+                zHChange = zHChange - Mathf.Pow(1.8f, backwardTimer);
+                backwardTimer = 0;
+            }
+            // Change Up
+            if (Input.GetKey(KeyCode.Space))
+            {
+                upTimer += Time.deltaTime;
+            }
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                yHChange = yHChange + Mathf.Pow(1.8f, upTimer);
+                upTimer = 0;
+            }
+            // Teleport
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                if (yHChange > 100)
+                {
+                    yHChange = 100;
+                }
+                if (zHChange > 100)
+                {
+                    zHChange = 100;
+                }
+                if (zHChange < -100)
+                {
+                    zHChange = -100;
+                }
+                if (xHChange > 100)
+                {
+                    xHChange = 100;
+                }
+                if (xHChange < -100)
+                {
+                    xHChange = -100;
+                }
+                player.transform.position = new Vector3(player.transform.position.x + xHChange, player.transform.position.y + yHChange, player.transform.position.z + zHChange);
+                xHChange = 0;
+                yHChange = 0;
+                zHChange = 0;
+            }
+            // Stop Roll
+            playerBody.freezeRotation = true;
         }
 
-        //else {
-        player.GetComponent<Rigidbody>().useGravity = true;
-        if (Input.GetKey(KeyCode.W) && speed < 50)
-        {
-            playerBody.AddForce(Vector3.forward * Force, ForceMode.Impulse);
-            speed = speed + 1;
-        }
-        if (Input.GetKey(KeyCode.W) == false && speed > 0)
-        {
-            speed = speed - 1;
-        }
-        if (speed == 50)
-        {
-            playerBody.velocity = playerBody.velocity / 2;
-            playerBody.angularVelocity = playerBody.angularVelocity / 2;
-            speed = 0;
-        }
-        // Go Backwards
-        else if (Input.GetKey(KeyCode.S) && backSpeed < 50)
-        {
-            playerBody.AddForce(Vector3.back * Force, ForceMode.Impulse);
-            backSpeed = backSpeed + 1;
-        }
-        if (Input.GetKey(KeyCode.S) == false && backSpeed > 0)
-        {
-            backSpeed = backSpeed - 1;
-        }
-        if (backSpeed == 50)
-        {
-            playerBody.velocity = playerBody.velocity / 2;
-            playerBody.angularVelocity = playerBody.angularVelocity / 2;
-            backSpeed = 0;
-        }
-
-        // Go Left
-        else if (Input.GetKey(KeyCode.A) && leftSpeed < 50)
-        {
-            playerBody.AddForce(Vector3.left * Force, ForceMode.Impulse);
-            leftSpeed = leftSpeed + 1;
-        }
-        if (Input.GetKey(KeyCode.A) == false && leftSpeed > 0)
-        {
-            leftSpeed = leftSpeed - 1;
-        }
-        if (leftSpeed == 50)
-        {
-            playerBody.velocity = playerBody.velocity / 2;
-            playerBody.angularVelocity = playerBody.angularVelocity / 2;
-            leftSpeed = 0;
-        }
-
-        //Go Right
-        else if (Input.GetKey(KeyCode.D) && rightSpeed < 50)
-        {
-            playerBody.AddForce(Vector3.right * Force, ForceMode.Impulse);
-            rightSpeed = rightSpeed + 1;
-        }
-        if (Input.GetKey(KeyCode.D) == false && rightSpeed > 0)
-        {
-            rightSpeed = rightSpeed - 1;
-        }
-        if (rightSpeed == 50)
-        {
-            playerBody.velocity = playerBody.velocity / 2;
-            playerBody.angularVelocity = playerBody.angularVelocity / 2;
-            rightSpeed = 0;
-        }
-        // Jump
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
-        {
-            playerBody.AddForce(Vector3.up * upwardsForce);
-            isOnGround = false;
-
-            // jumping
-            TotalJumps = PlayerPrefs.GetInt("TotalJumps");
-            PlayerPrefs.SetInt("TotalJumps", TotalJumps + 1);
-
-            TotalJumps = PlayerPrefs.GetInt("LTotalJumps");
-            PlayerPrefs.SetInt("LTotalJumps", TotalJumps + 1);
-
-            Audio.Play("Jump");
-        }
-        //}
 
         // Reset on purpose
         if (sceneNumber > 0)

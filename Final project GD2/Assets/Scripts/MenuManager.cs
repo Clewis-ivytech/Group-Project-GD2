@@ -321,7 +321,7 @@ public class MenuManager : MonoBehaviour
 
         if (Char2Lock || DevMode)
         {
-            Char2Txt.SetText("PlaceHolder");
+            Char2Txt.SetText("Wizard");
         }
         else
         {
