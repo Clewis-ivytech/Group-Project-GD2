@@ -899,7 +899,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wizard\nDescription
+  m_text: Wizard\nUse W,A,S,D, and space to move teleport location, and press X to
+    confirm it
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -926,8 +927,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11854,6 +11855,14 @@ MonoBehaviour:
   cameraStand: {fileID: 1997271006}
   CoinsCollected: 0
   sceneNumber: 1
+  xHChange: 0
+  yHChange: 0
+  zHChange: 0
+  forwardTimer: 0
+  backwardTimer: 0
+  leftTimer: 0
+  rightTimer: 0
+  upTimer: 0
 --- !u!54 &1678023358
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14541,6 +14550,11 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: f925addfa3b7e48f0bf1d332ed64e793, type: 3}
     volume: 1
     loop: 0
+    source: {fileID: 0}
+  - name: 5
+    clip: {fileID: 8300000, guid: 20e0a3cd562ad451bb5c229a393aa25d, type: 3}
+    volume: 1
+    loop: 1
     source: {fileID: 0}
   music:
   - name: 0
