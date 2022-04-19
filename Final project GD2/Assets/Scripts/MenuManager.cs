@@ -65,9 +65,28 @@ public class MenuManager : MonoBehaviour
     private int LTotalDeaths;
     private int LTotalJumps;
     private int LTotalResets;
+    private AudioManager Audio;
+    private int mute;
+    public bool muted;
+    [SerializeField] GameObject muteCheck;
+    [SerializeField] AudioManager manager;
 
     private void Awake()
     {
+        Audio = FindObjectOfType<AudioManager>();
+
+        mute = PlayerPrefs.GetInt("Mute");
+        if (mute == 1)
+        {
+            muted = true;
+            muteCheck.SetActive(true);
+        }
+        else
+        {
+            muted = false;
+            muteCheck.SetActive(false);
+        }
+
         boolean = PlayerPrefs.GetInt("Lvl2Lock");
         if (boolean == 1)
         {
@@ -171,6 +190,7 @@ public class MenuManager : MonoBehaviour
     public void LoadLevelOne()
     {
         SceneManager.LoadScene(1);
+        Audio.Play("Click");
     }
 
     public void LoadLevelTwo()
@@ -178,6 +198,7 @@ public class MenuManager : MonoBehaviour
         if (Lvl2Lock || DevMode)
         {
             SceneManager.LoadScene(2);
+            Audio.Play("Click");
         }
     }
 
@@ -186,6 +207,7 @@ public class MenuManager : MonoBehaviour
         if (Lvl3Lock || DevMode)
         {
             SceneManager.LoadScene(3);
+            Audio.Play("Click");
         }
     }
 
@@ -194,6 +216,7 @@ public class MenuManager : MonoBehaviour
         if (Lvl4Lock || DevMode)
         {
             SceneManager.LoadScene(4);
+            Audio.Play("Click");
         }
     }
 
@@ -202,6 +225,7 @@ public class MenuManager : MonoBehaviour
         if (Lvl5Lock || DevMode)
         {
             SceneManager.LoadScene(5);
+            Audio.Play("Click");
         }
     }
 
@@ -210,6 +234,7 @@ public class MenuManager : MonoBehaviour
         LevelPanal.SetActive(true);
         MainMenuPanal.SetActive(false);
         CharacterDiaplay.SetActive(false);
+        Audio.Play("Click");
 
         if (Lvl2Lock || DevMode)
         {
@@ -253,6 +278,7 @@ public class MenuManager : MonoBehaviour
         MainMenuPanal.SetActive(true);
         LevelPanal.SetActive(false);
         CharacterDiaplay.SetActive(true);
+        Audio.Play("Click");
     }
 
     public void SettingsPanelOn()
@@ -260,6 +286,7 @@ public class MenuManager : MonoBehaviour
         SettingsPanal.SetActive(true);
         MainMenuPanal.SetActive(false);
         CharacterDiaplay.SetActive(false);
+        Audio.Play("Click");
     }
 
     public void SettingsPanelOff()
@@ -267,18 +294,22 @@ public class MenuManager : MonoBehaviour
         MainMenuPanal.SetActive(true);
         SettingsPanal.SetActive(false);
         CharacterDiaplay.SetActive(true);
+        Audio.Play("Click");
+        Audio.Play("Click");
     }
 
     public void CreditsOn()
     {
         SettingsPanal.SetActive(false);
         Credits.SetActive(true);
+        Audio.Play("Click");
     }
 
     public void CreditsOff()
     {
         SettingsPanal.SetActive(true);
         Credits.SetActive(false);
+        Audio.Play("Click");
     }
 
     public void CharacterPanelOn()
@@ -286,10 +317,11 @@ public class MenuManager : MonoBehaviour
         CharacterPanal.SetActive(true);
         MainMenuPanal.SetActive(false);
         Spotlight.SetActive(true);
+        Audio.Play("Click");
 
         if (Char2Lock || DevMode)
         {
-            Char2Txt.SetText("PlaceHolder");
+            Char2Txt.SetText("Wizard");
         }
         else
         {
@@ -311,6 +343,7 @@ public class MenuManager : MonoBehaviour
         CharacterPanal.SetActive(false);
         MainMenuPanal.SetActive(true);
         Spotlight.SetActive(false);
+        Audio.Play("Click");
     }
 
     public void CharacterOne()
@@ -322,6 +355,7 @@ public class MenuManager : MonoBehaviour
         Character2Txt.SetActive(false);
         Character3Txt.SetActive(false);
         PlayerPrefs.SetInt("CharacterSelected", 1);
+        Audio.Play("Click");
 
         if (Menu)
         {
@@ -342,6 +376,7 @@ public class MenuManager : MonoBehaviour
             Character2Txt.SetActive(true);
             Character3Txt.SetActive(false);
             PlayerPrefs.SetInt("CharacterSelected", 2);
+            Audio.Play("Click");
 
             if (Menu)
             {
@@ -367,6 +402,7 @@ public class MenuManager : MonoBehaviour
             Character2Txt.SetActive(false);
             Character3Txt.SetActive(true);
             PlayerPrefs.SetInt("CharacterSelected", 3);
+            Audio.Play("Click");
 
             if (Menu)
             {
@@ -387,22 +423,26 @@ public class MenuManager : MonoBehaviour
         {
             DevMode = false;
             DevTxt.SetText("Dev Mode");
+            Audio.Play("Click");
         }
         else
         {
             DevMode = true;
             DevTxt.SetText("Dev Mode*");
+            Audio.Play("Click");
         }
     }
 
     public void OpenQuitConfirm()
     {
         QuitConfirm.SetActive(true);
+        Audio.Play("Click");
     }
 
     public void CloseQuitConfirm()
     {
         QuitConfirm.SetActive(false);
+        Audio.Play("Click");
     }
 
     public void QuitGame()
@@ -421,11 +461,13 @@ public class MenuManager : MonoBehaviour
     public void OpenResetConfirm()
     {
         ResetConfirm.SetActive(true);
+        Audio.Play("Click");
     }
 
     public void CloseResetConfirm()
     {
         ResetConfirm.SetActive(false);
+        Audio.Play("Click");
     }
 
     public void ResetProgress()
@@ -465,6 +507,8 @@ public class MenuManager : MonoBehaviour
     {
         StatsScreen.SetActive(true);
         MainMenuPanal.SetActive(false);
+        Audio.Play("Click");
+
         TotalCoins = PlayerPrefs.GetInt("TotalCoins");
         CoinsTxt.SetText("Coins Collected: " + TotalCoins);
         TotalDeaths = PlayerPrefs.GetInt("TotalDeaths");
@@ -488,6 +532,25 @@ public class MenuManager : MonoBehaviour
     {
         StatsScreen.SetActive(false);
         MainMenuPanal.SetActive(true);
+        Audio.Play("Click");
+    }
+
+    public void MuteToggle()
+    {
+        if (muted)
+        {
+            muted = false;
+            muteCheck.SetActive(false);
+            PlayerPrefs.SetInt("Mute", 0);
+            Audio.Play("Click");
+        }
+        else
+        {
+            muted = true;
+            muteCheck.SetActive(true);
+            PlayerPrefs.SetInt("Mute", 1);
+            Audio.Play("Click");
+        }
     }
 
 }
