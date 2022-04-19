@@ -18,8 +18,7 @@ public class Player : MonoBehaviour
     private float rightSpeed;
     private float backSpeed;
     [HideInInspector] public float CoinsCollected = 0;
-    public int sceneNumber = 1;
-    private bool Active;
+    public int sceneNumber = 0;
     private int Lock3;
 
     private int NewLvl2;
@@ -33,12 +32,18 @@ public class Player : MonoBehaviour
 
     private int currentChar;
 
+    private AudioManager Audio;
 
     // Start is called before the first frame update
     private void Start()
     {
         CoinsCollected = 0;
         currentChar = PlayerPrefs.GetInt("CharacterSelected");
+
+        Audio = FindObjectOfType<AudioManager>();
+
+        Audio.level = sceneNumber;
+        Audio.Load();
     }
 
     // Update is called once per frame
@@ -181,7 +186,7 @@ public class Player : MonoBehaviour
             TotalJumps = PlayerPrefs.GetInt("LTotalJumps");
             PlayerPrefs.SetInt("LTotalJumps", TotalJumps + 1);
 
-            FindObjectOfType<AudioManager>().Play("Jump");
+            Audio.Play("Jump");
         }
         //}
 
@@ -227,6 +232,8 @@ public class Player : MonoBehaviour
 
             TotalDeaths = PlayerPrefs.GetInt("LTotalDeaths");
             PlayerPrefs.SetInt("LTotalDeaths", TotalDeaths + 1);
+
+            Audio.Play("Death");
 
             playerBody.velocity = Vector3.zero;
             playerBody.angularVelocity = Vector3.zero;

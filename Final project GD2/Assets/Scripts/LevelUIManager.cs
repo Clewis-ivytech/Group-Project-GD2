@@ -12,9 +12,11 @@ public class LevelUIManager : MonoBehaviour
     private float timeToAppear = 4f;
     private float timeWhenDisappear;
     private int Lock2;
+    private AudioManager Audio;
 
     private void Start()
     {
+        Audio = FindObjectOfType<AudioManager>();
         Lock2 = PlayerPrefs.GetInt("2LockMessage");
         if (UnlockTxt == null)
         {
@@ -30,6 +32,7 @@ public class LevelUIManager : MonoBehaviour
 
     public void LoadMenu()
     {
+        Audio.Play("Click");
         SceneManager.LoadScene(0);
     }
 
